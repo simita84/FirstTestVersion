@@ -1,0 +1,44 @@
+
+<html>
+ 
+
+<body>
+	
+	
+<div class="hero-unit">
+ 
+
+ 
+<h3>Manage items</h3>
+ 
+<div class="btn">	<%=link_to("Add items ",:action=>'new')%> </div>
+	<div class="btn">	<%=link_to("Back to Admin Menu",:controller=>'access',:action=>'menu')%> </div>
+	
+	<br>
+<table  class="table">
+
+<tr>
+	<%@items.each do |item|%>
+		<th>		<%=" INDEX"%> </th><td><%=item.index%>        </td>         				 
+          		 		 
+	
+	 	 
+			<th>	<%="NAME"%>  </th> 	<td><%=link_to(item.name, :action => 'listItem', :id => item.id)%></td>	
+	<th>		<%="ACTIONS"%></th>	 <td> <%=link_to("EDIT",:action=>'edit',:id=>item.id)%>	 
+			 <%=link_to("DELETE",:action=>'delete',:id=>item.id)%>	</td>	  
+			 	   
+		</tr>
+		
+	<%end%>
+
+	
+	</table>
+	
+	 <%=flash[:notice]%> 
+	
+	</div>
+	  
+</body>
+	
+</html>
+ 

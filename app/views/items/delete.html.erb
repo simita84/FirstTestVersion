@@ -1,0 +1,23 @@
+
+
+<%=form_for(:item,:url=>{:action=>'destroy',:id =>@item.id}) do |f| %>
+<div id="outerdiv">
+ 
+	
+<h3>Do u Want to delete the following record?</h3>
+
+<table border="1"> 
+	<tr>
+		<th>
+<%=@item.index%><br></th>
+	<th>
+ <%=@item.name%><br></th>
+ 
+</tr>
+</table>
+<%=submit_tag("Confirm Delete")%>  
+
+<br><%=link_to("Cancel",:action=>'list')%>
+</div>
+<%end%>
+

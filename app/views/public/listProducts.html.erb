@@ -1,0 +1,27 @@
+<html>
+ 
+
+<body>
+	<div class="container">
+		<div class="row"> 
+			<div class="span10">
+				<div class="hero-unit">	
+					<div class="btn"> <%=link_to("Back to Home",:controller=>'public',:action=>'index')%>     
+					</div>
+									    
+					<h1>  Products Reviews    </h1>
+						<%@products.each do |product|%> 
+ 	  	<%=link_to(product.title,:controller=>'public',:action=>'listReviews', :product_id=>product.id) %>   
+	  
+	
+ 	<%end%>
+ 
+	 
+	</div>
+	</div>
+	</div>
+	</div>
+  </body>
+	
+</html>
+ 

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+ 
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Welcome</title>
+ <link href="/stylesheets/bootsrap.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+		<div class="container">
+	<div class="hero-unit">
+	  
+	 
+
+		<div class="row">
+			 	<div class="span2">
+					<img src="images/img1.jpg" class="img-polaroid" /><br>
+					<img src="images/img2.jpeg"  class="img-polaroid"/><br>
+					<img src="images/img3.jpeg"  class="img-polaroid"/><br>
+					<img src="images/img55.jpeg" class="img-polaroid" /><br>
+					<img src="images/img5.jpg" class="img-polaroid" />
+				</div>
+			
+			 	<div class="span6">
+		            
+	
+					<%@homes.each do |home|%>
+					<h1>
+	
+					<%=home.title%> </h1>   
+					<center> 
+	
+						<img src="images/tots.jpg" class="img-polaroid"/><center>
+
+<p>   
+<div class="lead">
+<%=simple_format(word_wrap(home.content,:line_width=>260))%>  </h2></div>
+	<%end%> </p>
+ </div>
+	
+	
+			 <div class="span2">
+				<img src="images/img6.jpg" class="img-polaroid" /><br>
+				<img src="images/img7.jpg" class="img-polaroid" /><br>
+				<img src="images/img8.jpg" class="img-polaroid" /><br>
+				<img src="images/img10.gif" class="img-polaroid" /><br>
+				<img src="images/img12.jpg" class="img-polaroid" />
+				
+				</div>
+	</div>
+ </div>
+	 </div> 
+	
+	
+	 
+
+</body>
+</html>

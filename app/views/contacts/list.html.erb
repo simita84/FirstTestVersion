@@ -1,0 +1,39 @@
+<html>
+ 
+
+<body>
+	
+	
+<div class="hero-unit">
+ 	<div class="btn">	<%=link_to("Back to Admin Menu",:controller=>'access',:action=>'menu')%></div>
+ 
+<table class="table">
+
+ 
+ 
+<tr>
+	<%@contacts.each do |contact|%>
+<th>		<%=" TITLE"%> </th>	<td><%=contact.name%>        </td>     </tr> 
+	<tr>   				 
+     <th>	<%="Email"%>  </th> <td><%=contact.emailid%> </td>   
+<tr> 
+
+<th>	<%="Find Us in Facebook"%>  </th> <td><%=contact.facebook%> </td>  </tr>  
+<tr> 
+ 	 	 <th> <%=link_to("EDIT",:action=>'edit',:id=>contact.id)%>	 	</th>	  
+			 	   
+		</tr>
+		
+	<%end%>
+
+	
+	</table>
+	
+	 <h3><%=flash[:notice]%></h3> 
+	
+	</div>
+	  
+</body>
+	
+</html>
+ 

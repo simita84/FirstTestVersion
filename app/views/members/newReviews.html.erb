@@ -1,0 +1,45 @@
+<div> Logged in as <%= session[:username]%> </div>
+ 
+<html>
+ 
+
+<body>
+	
+	
+<div class="hero-unit">
+	<div class="btn"><%=link_to("Back to list",{:action=>'listReviews',:product_id=>@product.id})%></div>
+
+
+<h2>Create new Reviews</h2>
+ 
+	 
+<%=form_for(:review, :url => {:action=>'createReviews', :product_id => @product.id}) do |f| %>
+
+	<table class="table">
+	 
+	 
+  	 
+	<tr>
+    	<th>Title</th>
+        <td><%=f.text_field(:title)%></td>
+	</tr>
+ 
+	 
+		<th>Review</th>
+		<td><%=f.text_area(:content)%></td>
+    </tr>	
+ 
+
+ 
+<tr><td>
+     <div class="btn">
+	    <%=submit_tag("Create Review")%> 
+     </div></td></tr>
+ 
+ 	</table>
+<% end %>
+<h3><%=flash[:notice]%></h3> 
+
+	</div>
+	 </body>
+	</html>

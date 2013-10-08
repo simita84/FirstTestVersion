@@ -1,0 +1,71 @@
+<html>
+
+<body>
+<div class="span3">
+ 
+	<div class="hero-unit">
+			
+			
+				
+				
+				 <b> Products Reviews   </b>
+
+				<table class="table">
+
+						<%@products.each do |product|%> 	 
+
+					<tr><td>
+					 
+						
+						
+					 <%=link_to(product.title,:controller=>'public',:action=>'listReviews', :product_id=>product.id) %>  	 </td>
+			<%end%></tr>
+
+					</table>
+				</div>
+			
+			
+		 
+		 </div>
+		
+				<div class="span10">
+						<div class="hero-unit">
+		<%=link_to("Back to Product/Services Page",:controller=>'public',:action=>'listProducts')%>
+		
+<h1> <%=@product.title%>  Reviews</h1>
+	 
+	<br>
+<table class="table" >
+  		
+	<% @reviews.each do |review|%>
+<tr align ="left">	
+	
+	<td><div class="text-error"><%=review.index%>.<%=review.title	%></div></td>         </tr>     				 
+           		 		 
+			<tr align ="left">
+				<td><div class="lead">	<%= word_wrap(review.content,:line_width=>500)%></div></td> </tr> 	 
+				
+				<tr> <td> Posted by <%=review.member_emailid%>:</td></tr>	  
+				
+				<tr> 
+					<td>Created @<%=Time.at((review.created_at).to_i) %> && 
+						 Updated @<%=review.updated_at %></td>
+						</tr>
+				 
+	 	<%end%>	
+	</table>
+	</div>
+ 
+	
+	
+	
+	 <h3><%=flash[:notice]%></h3> 
+	
+	
+	
+	</div>
+	  
+</body>
+	
+</html>
+ 

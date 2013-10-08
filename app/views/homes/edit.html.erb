@@ -1,0 +1,38 @@
+<html>
+ <body>
+
+	<div class="hero-unit">
+		
+		<div class="btn"><%=link_to("Back to Admin",:action=>'list',:id=>@home.id)%></div>
+
+
+ 
+
+
+<%=form_for(:home,:url=>{:action=>'update',:id =>@home.id}) do |f| %>
+
+ 
+ 
+<table class="table">
+<tr>
+<th>    Title</th>
+<td>	<%=f.text_field(:title)%></td>
+<tr>
+<th>  Content</th>
+<td>
+	<div class="uneditable-input">	<%=f.text_area(:content)%></div></td>
+		</tr>
+	 
+		<tr>
+		 
+			<tr>
+		<td>	</td>  <td><div class="btn">	<%=submit_tag("Edit home")%></div> </td>
+
+	 </tr>
+	</div>
+	<%end%>
+</body>
+</html>	
+	
+	
+	

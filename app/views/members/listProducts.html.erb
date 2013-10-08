@@ -1,0 +1,27 @@
+<div> Logged in as <%= session[:username]%> </div>
+
+<html>
+<body>
+	
+	<div class="hero-unit">
+	
+<h3 align="center">Products Review  </h3>
+
+			 
+<%@products.each do |product|%> 	 
+
+ 
+
+ <%=link_to(product.title,:controller=>'members',:action=>'listReviews', :product_id=>product.id) %> 
+
+ 
+
+<%end%>
+ <h3><%=flash[:notice]%></h3> 
+<div class="btn">	<%=link_to("Back Home",:controller=>'members',:action=>'index')%></div>
+ 
+</div>
+</body>
+</html>
+  
+

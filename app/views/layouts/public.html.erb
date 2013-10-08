@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+  
+   <link  href="/stylesheets/bootstrap.css" rel="stylesheet"  type="text/css"/>
+  <title>Clubby Kids</title>
+</head>
+<body>
+	
+	
+	
+	<div class="mainHead"> Clubby Kids</div>
+	
+	
+
+  	<div id="container">
+
+
+<div class="navbar">
+              <div class="navbar-inner">
+                <div class="container">
+                  <ul class="nav">
+                    <li><%=link_to("Home",:controller=>'public',:action=>'index')%></li>
+				 	<li><%=link_to("Events",:controller=>'members',:action=>'events')%></li>
+					<li><%=link_to("Reviews",:controller=>'public',:action=>'listProducts')%></li>
+					<li><%=link_to("Kids Recipes",:controller=>'public',:action=>'listRecipes')%></li>
+					<li><%=link_to("Kids Items",:controller=>'public',:action=>'listItems')%></li>
+					<li><%=link_to("Contact Us",:controller=>'public',:action=>'listContacts')%></li>
+					<li><%=link_to("Login",:controller=>'members',:action=>'login')%></li>		 
+					<li><%=link_to("Sign Up",:controller=>'public',:action=>'SignUp')%></li>
+                  </ul>
+                </div>
+              </div>
+
+            </div>
+<%= yield %>
+ </div>
+	
+ 
+
+
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script src="javascripts/bootstrap.js"></script>
+
+</body>
+	
+</html>

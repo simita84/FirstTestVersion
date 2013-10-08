@@ -1,0 +1,50 @@
+<html>
+ 
+
+<body>
+	
+	
+<div class="hero-unit">
+		<div class="btn">	<%=link_to("Add new Recipe ",:action=>'new')%> </div>
+	<div class="btn">
+			<%=link_to("Back to Admin Menu",:controller=>'access',:action=>'menu')%>
+			</div>
+		
+
+
+<h3>Recipes List</h3>
+ 
+<table class="table">
+
+ 
+	<%@recipes.each do |recipe|%>
+
+	    				 
+          		 		 
+ 	<tr>	<th>	<%="Recipe Name"%>   </th>  <td><div class="text-error"> <%=recipe.title%></div> </td></tr> 
+	 	 
+	<tr><th>	<%="Recipe Content"%>   </th>   
+		<td> <%=simple_format(word_wrap(recipe.content,:line_width=>100))%> </td></tr>
+		
+	
+		
+
+		<tr>
+			
+		 
+			<td>	<%=link_to("EDIT",:action=>'edit',:id=>recipe.id)%>	 </td>
+			   <td> <%=link_to("DELETE",:action=>'delete',:id=>recipe.id)%></td>
+		 </td></tr>
+ 		<%end%>
+	</table>
+	
+	 <h3><%=flash[:notice]%></h3> 
+	
+	</div>
+	
+	</body>
+	  
+
+	
+</html>
+ 

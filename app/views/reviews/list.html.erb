@@ -1,0 +1,52 @@
+<html>
+ 
+
+<body>
+	
+	
+<div class="hero-unit">
+
+<div class="btn">	<%=link_to("Back to Product/Services Page",{:controller=>'products',:action=>'list'})%></div>
+
+
+
+<h1>Reviews List</h1>
+ 
+ 
+ 
+	 
+	<br>
+<table class="table">
+
+	<th>		<%=" No:"%> </th>
+	<th>	<%="TITLE"%>  </th>   	 
+	  	 		<td>	<%="Contents"	%></td> 
+			<th>		<%="Actions"%></th>
+			 
+ 
+<tr>
+	<% @reviews.each do |review|%>
+	<td><%=review.index%>        </td>         				 
+           		 		 
+		<td>	<%=review.title	%></td> 	
+				<td>	<%=simple_format(word_wrap(review.content,:line_width => 150))	%></td> 
+				
+				
+				
+		<td><div class="btn"> <%=link_to("EDIT",:action=>'edit',:id=>review.id,:product_id=>@product.id)%>	</div> <br>
+			 <div class="btn"><%=link_to("DELETE",:action=>'delete',:id=>review.id,:product_id=>@product.id)%>	</td>	  </div>
+			 	   
+		</tr><tr><td>Posted By	<%=review.member_username%> </td></tr>
+		
+	<%end%>
+
+	
+	</table>
+	 <h3><%=flash[:notice]%></h3> 
+	
+	</div>
+	  
+
+	
+</html>
+ 

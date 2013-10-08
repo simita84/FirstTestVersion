@@ -1,0 +1,54 @@
+<html>
+ <body>
+
+	<div class="container">
+
+ 	
+<div class="span11">	
+	<div class="hero-unit">
+	
+		<div class="btn">
+			<%=link_to("Back to Home",:controller=>'public',:action=>'index')%>
+		</div>
+
+		<h2> Recipes    </h2>
+ 
+			<table class="table">
+
+ 
+				<%@recipes.each do |recipe|%>
+
+	    				 
+          		 		 
+ 	<tr>	
+	<th><div class="text-error"><%=recipe.title%></div> </th></tr> 
+	 	 
+	<tr> 
+		<td> <%=simple_format(word_wrap(recipe.content,:line_width=>100))%> </td></tr>
+		
+		<tr>
+			 <td>
+				Posted By : <%=recipe.member_emailid%>
+			</td>
+		</tr>
+
+		<tr> 
+			<td>Created @<%=Time.at((recipe.created_at).to_i) %> && 
+				 Updated @<%=recipe.updated_at %>
+			</td>
+		</tr>
+		
+ 		<%end%>
+	</table>
+ 
+	</div>
+	</div>
+	</div>
+	</body>
+	  
+
+	
+</html>
+ 
+
+ 

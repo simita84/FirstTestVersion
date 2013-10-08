@@ -1,0 +1,40 @@
+<html>
+ <body>
+
+	<div class="hero-unit">
+		
+		<div class="btn">	<%=link_to("Back to Admin Menu",:controller=>'access',:action=>'menu')%></div>
+		
+<h3>Manage Home Page</h3>
+ 
+ 
+	<br>
+<table class="table">
+
+ 
+ 
+<tr>
+	<%@homes.each do |home|%>
+<th>		<%=" TITLE"%> </th>	<td><%=home.title%>        </td>     </tr> 
+	<tr>   				 
+     <th>	<%="CONTENT"%>  </th> <td><%=simple_format(word_wrap(home.content,:line_width=>260))%> </td>    
+<tr> 
+ 		 		 
+	<th>		<%=" ACTION"%> </th>	 <td> <%=link_to("EDIT",:action=>'edit',:id=>home.id)%>	 
+	 	</td>	  
+			 	   
+		</tr>
+		
+	<%end%>
+
+	
+	</table>
+	
+	 <h3><%=flash[:notice]%></h3> 
+	
+	</div>
+	  
+</body>
+	
+</html>
+ 

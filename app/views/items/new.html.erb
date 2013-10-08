@@ -1,0 +1,36 @@
+<html>
+ 
+
+<body>
+	
+	
+<div class="hero-unit">
+	 
+<%=form_for(:item,:url=>{:action=>'create'}) do |f| %>
+ 
+<table class="table">
+	
+	<tr>
+		<th>item Index</th>
+		<td>	<%=f.text_field(:index)%></td>
+	</tr>
+ 
+	
+<tr>
+		<th>item Name</th>
+		<td>	<%=f.text_field(:name)%></td>
+		
+</tr>
+ 
+<tr>
+		<th>Review  Content</th>
+			<td>	<%=f.text_area(:content)%></td>
+</tr>
+		<tr>
+	 <td>	<%=submit_tag("Create item")%> </td></tr>
+	<%end%>
+<tr> <%=flash[:notice]%> </tr>
+ </table>
+	</div>
+ </body>
+</html>

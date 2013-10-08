@@ -1,0 +1,61 @@
+<html>
+
+<body>
+	<div class="container">
+
+	<div class="span11">	
+		<div class="hero-unit">
+		<div class="btn">
+		 
+				<%=link_to("Back to Home",:controller=>'public',:action=>'index')%>
+			 
+				</div>
+				
+				
+				 
+<h1>Items for Sale   </h1>
+ 	 
+	<br>
+	
+	
+<table class="table">
+ 
+	<%@items.each do |item|%> 	 
+	    
+	
+	<tr>
+			<td > <div class="text-error"><b> <%=item.index%> .  <%=item.name%></b></div> </td>
+	 
+		</tr>	 		  			 	   
+	
+		<tr>	<td>	<p>
+		<div class="lead">	<%=simple_format(word_wrap(item.content,:line_width=>300))%></div></p>
+			
+			</td></tr>
+				
+							
+	<tr> <td ><b>Posted By : <%=item.member_emailid%></b></td></tr>
+	
+	<tr> 
+		<td>Created @<%=Time.at((item.created_at).to_i) %> && 
+			 Updated @<%=item.updated_at %></td>
+			</tr>
+	
+		<%end%>
+			</tr>
+	
+<br>
+	
+	</table>
+	 <h3><%=flash[:notice]%></h3> 
+	
+	</div>
+	  </div>
+</div>
+</div>
+
+</div>
+</body>
+	
+</html>
+ 

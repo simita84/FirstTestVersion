@@ -1,0 +1,45 @@
+ <html>
+
+<body>
+	<div class="container">
+
+<div class="hero-unit">
+ 
+
+
+ 
+  
+<table align="center">
+
+ 
+
+<tr><td><h1>Contact Us</h1></td></tr>
+	<%@contacts.each do |contact|%>
+ 
+
+	<tr><td> 
+		<center>	<img src="/images/moms.jpg" class="img-circle"/></center></td></tr>
+		<tr>
+			<td>
+			 <%=contact.name%>   </td> 
+			  </tr>
+	<tr>   				 
+     <td><%= contact.emailid%> </td>    
+ <tr> 
+	    				 
+      <td><%= contact.facebook%> </td>  
+<tr>
+ 		 		 
+ 	 
+	 	</td>	  
+			 	   
+		</tr>
+		
+	<%end%>
+
+		</table>
+	 
+	</div>
+	</div>
+</body>
+</html>

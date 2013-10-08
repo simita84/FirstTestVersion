@@ -1,0 +1,46 @@
+<html>
+ 
+
+<body>
+ 
+	
+<div class="hero-unit">
+
+
+<h1>Products/Services List</h1>
+ 
+ <div class="btn">
+	<%=link_to("Add Products/Services",:action=>'new')%> </div>
+	<div class="btn">	<%=link_to("Back to Admin Menu",:controller=>'access',:action=>'menu')%></div>
+
+	
+	<br>
+<table class="table">
+
+	<th>		<%=" INDEX"%> </th>
+	<th>	<%="TITLE"%>  </th>   	 
+	 	 
+			<th>		<%="Actions"%></th>
+			 
+ 
+<tr>
+	<%@products.each do |product|%>
+	<td><%=product.index%>        </td>         				 
+          		 		 
+	
+		<td><%=link_to(product.title, :controller=>'reviews', :action=>'list', :product_id=>product.id)%></td>	 	
+	 <td> <%=link_to("EDIT",:action=>'edit',:id=>product.id)%>	 
+			 <%=link_to("DELETE",:action=>'delete',:id=>product.id)%>	</td>	  
+			 	   
+		</tr>
+		
+	<%end%>
+
+	
+	</table>
+	 <h3><%=flash[:notice]%></h3> 
+	</div>
+
+ 
+</html>
+ 

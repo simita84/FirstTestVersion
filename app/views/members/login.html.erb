@@ -1,0 +1,31 @@
+
+<html>
+ 
+
+<body>
+	
+<div class="container">	
+<div class="hero-unit">
+<h2> Explore Clubby Kids</h2>
+ 
+ <div id="login">
+<%=form_tag(:controller=>'members',:action=>'attempt_login') do %>
+<table align="center">
+ <tr>
+
+	<td> <h3>Login</h3></td></tr>
+	<tr>
+		<td><%= label_tag(:username)%>	</td>
+		<td><%=text_field_tag(:username)%>	</td><tr>
+	 	<td><%= label_tag(:password)%>	</td>
+		<td><%=password_field_tag(:password)%>	</td></tr>
+		</tr>
+		<tr><td><%=submit_tag("login")%></td></tr>
+	</table>
+	<%end%>
+		 <%=flash[:notice]%>
+	</div>
+	</div>
+		</div>
+</body>
+</html>

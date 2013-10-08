@@ -1,0 +1,33 @@
+<html>
+ 
+
+<body>
+	
+	
+<div class="hero-unit">
+
+	 
+<%=form_for(:product,:url=>{:action=>'create'}) do |f| %>
+ 
+<table class="table">
+<tr>
+<th>Review Index</th>
+<td>	<%=f.text_field(:index)%></td>
+<tr>
+<th>Review Title</th>
+<td>
+		<%=f.text_field(:title)%></td>
+		</tr>
+		<tr>
+	 <td>
+	<div class="btn">	<%=submit_tag("Create Category")%> </div></td>
+		<td><div class="btn"><%=link_to("Cancel",:action=>'list') %></div></td>
+		
+		</tr>
+	<%end%>
+<tr> <%=flash[:notice]%> </tr>
+ </table>
+	</div>
+	</body>
+	</html>
+	 
