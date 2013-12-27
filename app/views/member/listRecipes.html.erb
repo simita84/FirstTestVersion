@@ -1,0 +1,46 @@
+<html>
+
+<body>
+	<div> Logged in as <%= session[:username]%> </div>	
+
+	
+	<div class="hero-unit">
+		<div class="btn">
+			<%=link_to("Create new Recipes",:action=>'newRecipes')%> </div>
+		<div><%= pluralize(@recipes.size, 'recipe') %> found</div>
+	
+		<h3 align="center">Recipes </h3>
+
+		<table class="table">
+
+
+			<% @recipes.each do |recipe|%>
+			<tr align ="left">	<th><%=recipe.title	%></th>         </tr>     				 
+
+					<tr align ="left">
+						<td>	<%= word_wrap(recipe.content,:line_width=>30)%></td> </tr> 	 
+
+						<tr> <td> Posted by :<%=recipe.member_username%></td>
+
+		<td> 				
+				<% if recipe.member_username == session[:username]%>
+		 <li>
+		 <%= link_to "EDIT",  { :controller=>"member", :action=>"edit", :id=>"recipe.id"} %>
+		 <%= link_to "DELETE",  { :controller=>"member", :action=>"delete", :id=>"recipe.id"} %>
+			 </li>
+							        <% end %>
+							</td>
+
+
+
+
+
+							</tr>	   
+			 	<%end%>	
+			</table>
+ 
+<div class="btn">	<%=link_to("Back Home",:controller=>'member',:action=>'index')%></div>
+ 
+</div>
+</body>
+</html>

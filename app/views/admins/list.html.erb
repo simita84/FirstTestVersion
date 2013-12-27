@@ -1,0 +1,51 @@
+<html>
+ 
+
+<body>
+ 
+	
+<div class="hero-unit">
+
+
+<h1>Manage Admins</h1>
+ 
+ <div class="btn">
+	<%=link_to("Create new Admin",:action=>'new')%> </div>
+	<div class="btn">	<%=link_to("Back to Admin Menu",:controller=>'access',:action=>'menu')%></div>
+
+	
+	<br>
+<table class="table">
+
+	<th>		<%="First Name"%> </th>
+	<th>	<%="Last Name"%>  </th>   
+	<th>	<%="User Name"%>  </th>  
+		<th>	<%="EmailId"%>  </th>
+	
+	 	 
+	 	 
+			<th>		<%="Actions"%></th>
+ 	 
+ 
+<tr>
+	<%@admins.each do |admin|%>
+	<td><%=admin.first_name%>        </td>  
+	   	<td><%=admin.last_name%>        </td>      				 
+        	<td><%=admin.username%>        </td>    		 		  
+	<td><%=admin.emailId%>        </td>  	 
+	  	
+	 <td> <%=link_to("EDIT",:action=>'edit',:id=>admin.id)%>	 
+			 <%=link_to("DELETE",:action=>'delete',:id=>admin.id)%>	</td>	  
+			 	   
+		</tr>
+		
+	<%end%>
+     
+	
+	</table>
+	 <h3><%=flash[:notice]%></h3> 
+	</div>
+
+ 
+</html>
+ 

@@ -1,0 +1,48 @@
+<html>
+<body>
+ 
+<div class="logged">Hello! <%= session[:username]%> </div>
+
+	
+	<div class="hero-unit">
+		
+		
+		<div><%= pluralize(@reviews.size, 'review') %> found</div>
+<div class="btn">	<%=link_to("Back to Product/Services Page",:controller=>'member',:action=>'listProducts')%></div>
+ 
+ 
+<h3> <%=@product.title%> Reviews</h3>
+ 
+<div class="btn">
+		<%=link_to("Add Reviews",:controller=>'member',:action=>'newReviews',:product_id=>@product.id)%> </div>
+<table class="table">
+ 
+		
+	<% @reviews.each do |review|%>
+	<tr align ="left">	<th><%=review.title	%></th>         </tr>     				 
+           		 		 
+			<tr align ="left">
+				<td>	<%= word_wrap(review.content,:line_width=>30)%></td> </tr> 	 
+				
+				<tr> <td> Posted by :<%=review.member_username%></td>
+					
+<td> 				
+		<% if review.member_username == session[:username]%>
+ <li>
+ <%= link_to "EDIT",  { :controller=>"member", :action=>"editReviews", :id=>review.id,:product_id=>@product.id }%>
+ <%= link_to "DELETE",  { :controller=>"member", :action=>"deleteReviews", :id=>review.id,:product_id=>@product.id} %>
+	 </li>
+					        <% end %>
+					</td>
+ 					
+					</tr>	   
+	 	<%end%>	
+	</table>
+	 <h3><%=flash[:notice]%></h3> 
+	
+	</div>
+	  
+</body>
+	
+</html>
+ 

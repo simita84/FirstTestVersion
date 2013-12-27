@@ -1,7 +1,12 @@
 require "digest/sha1"
 class Member < ActiveRecord::Base
   # attr_accessible :title, :body
-  
+
+   before_save :create_hashed_password
+    after_save :clear_password
+    attr_accessor :password
+
+
   has_many :reviews
   has_many :recipes
   has_many :items
@@ -40,6 +45,24 @@ class Member < ActiveRecord::Base
       "#{first_name}  #{last_name}"
 
     end
+    
+    private
+
+       def create_hashed_password
+         # Whenever :password has a value hashing is needed
+         unless password.blank?
+           # always use "self" when assigning values
+           self.salt = Member.make_salt(username) if salt.blank?
+           self.hashed_password = Member.hash_with_salt(password, salt)
+         end
+       end
+
+       def clear_password
+         # for security and b/c hashing is not needed
+         self.password = nil
+       end
+    
+    
 
   
   

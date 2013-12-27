@@ -1,9 +1,27 @@
 Clubbykids::Application.routes.draw do
    
  
+  get "member/index"
+
+  get "member/listProducts"
+
+  get "member/listRecipes"
+
+  get "member/listReviews"
+
+  get "member/logout"
+
+  get "member/events"
+
+  get "member/attempt_login"
+
+  get "member/listMembers"
+
    root :to=>"public#index"
 
   match '/admin', :to=>"access#index"
+  
+   
   
     
 

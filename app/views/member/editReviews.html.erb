@@ -1,0 +1,30 @@
+<html>
+ <body>		
+<div class="hero-unit">
+ <%=form_for(:review,:url=>{:action=>'updateReviews',:id =>@review.id,:product_id=>@product.id}) do |f| %>
+ 	<table class="table">
+		<tr>
+			<th> Reviews index</th>
+			<td>	<%=f.text_field(:index)%></td>
+			<tr>
+				<th>Reviews Title</th>
+				<td>
+					<%=f.text_field(:title)%></td>
+				</tr>
+				<tr>
+					<th>Reviews Contents</th>
+					<td>
+						<%=f.text_area(:content)%></td>
+					</tr>
+					<tr>
+					 
+			Posted By	<%=f.text_field(:member_username)%> 
+		 			</tr>
+			<tr><td> 		<div class="btn"><%=submit_tag("Edit Reviews")%> 	</div>
+	</td> <td>	
+		<div class="btn">	<%=link_to("CANCEL",:action=>'list',:product_id=>@product.id)%></div></td>
+	 </tr>
+			</div>
+					<%end%>
+ 	</body>
+	</html>

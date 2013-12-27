@@ -1289,6 +1289,16 @@ textarea::-webkit-input-placeholder {
   padding-top: 5px;
 }
 
+.logged
+{
+	  color: #FFFF00;
+	  font-size: 15px;
+	background-color: #00000F;
+	  text-align: center;
+	
+	
+}
+
 .radio.inline,
 .checkbox.inline {
   display: inline-block;

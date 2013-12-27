@@ -1,0 +1,29 @@
+
+<html>
+ <body>
+ <div class="hero-unit">
+ <%=form_for(:review,:url=>{:action=>'destroyReviews',:id =>@review.id,:product_id=>@product.id}) do |f| %>
+ 
+ 
+	
+<h3>Do u Want to delete the following record?</h3>
+
+<table class="table"> 
+	<tr>
+		<th>
+		<%=@review.index%><br></th>
+	<th>
+ 		<%=@review.title%><br></th>
+ </tr>
+<tr>
+	<td><%=submit_tag("Confirm Delete")%>  </td><td>
+
+ <div class="btn"><%=link_to("Cancel",:action=>'listReviews',:product_id=>@product.id)%></div></td>
+</table>
+
+</div>
+<%end%>
+
+</body>
+</html>
+

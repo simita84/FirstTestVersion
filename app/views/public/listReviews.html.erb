@@ -45,7 +45,7 @@
 			<tr align ="left">
 				<td><div class="lead">	<%= word_wrap(review.content,:line_width=>500)%></div></td> </tr> 	 
 				
-				<tr> <td> Posted by <%=review.member_emailid%>:</td></tr>	  
+				<tr> <td> Posted by <%=review.member_username%>:</td></tr>	  
 				
 				<tr> 
 					<td>Created @<%=Time.at((review.created_at).to_i) %> && 

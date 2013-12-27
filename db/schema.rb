@@ -11,9 +11,9 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131004205630) do
+ActiveRecord::Schema.define(:version => 20131226172202) do
 
-  create_table "admin_users", :force => true do |t|
+  create_table "admins", :force => true do |t|
     t.string   "first_name"
     t.string   "last_name"
     t.string   "username",        :limit => 25, :null => false
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(:version => 20131004205630) do
     t.datetime "updated_at",                    :null => false
   end
 
-  add_index "admin_users", ["username"], :name => "index_admin_users_on_username"
+  add_index "admins", ["username"], :name => "index_admin_users_on_username"
 
   create_table "contacts", :force => true do |t|
     t.string   "name",       :limit => 25, :null => false
@@ -42,15 +42,15 @@ ActiveRecord::Schema.define(:version => 20131004205630) do
   end
 
   create_table "items", :force => true do |t|
-    t.integer  "index",          :null => false
-    t.string   "name",           :null => false
+    t.integer  "index",           :null => false
+    t.string   "name",            :null => false
     t.text     "content"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
-    t.integer  "member_emailid", :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.string   "member_username", :null => false
   end
 
-  add_index "items", ["member_emailid"], :name => "index_items_on_member_emailid"
+  add_index "items", ["member_username"], :name => "index_items_on_member_username"
 
   create_table "members", :force => true do |t|
     t.string   "username",        :limit => 25, :null => false
@@ -72,15 +72,15 @@ ActiveRecord::Schema.define(:version => 20131004205630) do
   end
 
   create_table "recipes", :force => true do |t|
-    t.integer  "index",                        :null => false
+    t.integer  "index",                         :null => false
     t.text     "content"
-    t.datetime "created_at",                   :null => false
-    t.datetime "updated_at",                   :null => false
-    t.string   "title",          :limit => 50, :null => false
-    t.integer  "member_emailid",               :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.string   "title",           :limit => 50, :null => false
+    t.string   "member_username",               :null => false
   end
 
-  add_index "recipes", ["member_emailid"], :name => "index_recipes_on_member_emailid"
+  add_index "recipes", ["member_username"], :name => "index_recipes_on_member_username"
 
   create_table "reviews", :force => true do |t|
     t.integer  "index"

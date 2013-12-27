@@ -1,0 +1,28 @@
+
+<html>
+<body>
+
+<div class="logged"> Hello ! <%= session[:username]%></div>	
+	<div class="hero-unit">
+			<div><%= pluralize(@products.size, 'product') %> found</div>
+	
+<h3 align="center">Products Review  </h3>
+
+			 
+<%@products.each do |product|%> 	 
+
+ 
+
+ <%=link_to(product.title,:controller=>'member',:action=>'listReviews', :product_id=>product.id) %> 
+
+ 
+
+<%end%>
+ <h3><%=flash[:notice]%></h3> 
+<div class="btn">	<%=link_to("Back Home",:controller=>'member',:action=>'index')%></div>
+ 
+</div>
+</body>
+</html>
+  
+

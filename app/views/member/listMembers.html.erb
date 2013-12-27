@@ -1,0 +1,56 @@
+
+<html>
+ 
+
+<body>
+
+<h1>Member#listMembers</h1>
+<p>Find me in app/views/member/listMembers.html.erb</p>
+
+
+	
+<div class="hero-unit">
+
+
+<h1>Manage Members</h1>
+ 
+ <div class="btn">
+	<%=link_to("Create new  member",:action=>'new')%> </div>
+	<div class="btn">	<%=link_to("Back to Admin Menu",:controller=>'access',:action=>'menu')%></div>
+
+	
+	<br>
+<table class="table">
+
+	<th>		<%="First Name"%> </th>
+	<th>	<%="Last Name"%>  </th>   
+	<th>	<%="User Name"%>  </th>  
+	 
+	
+	 	 
+	 	 
+			<th>		<%="Actions"%></th>
+			 
+ 
+<tr>
+	<%@members.each do |member|%>
+	<td><%=member.first_name%>        </td>  
+	   	<td><%=member.last_name%>        </td>      				 
+    		 		  
+	<td><%=member.emailId%>        </td>  
+	  	
+	 <td> <%=link_to("EDIT",:action=>'edit',:id=>member.id)%>	 
+			 <%=link_to("DELETE",:action=>'delete',:id=>member.id)%>	</td>	  
+			 	   
+		</tr>
+		
+	<%end%>
+
+	
+	</table>
+	 <h3><%=flash[:notice]%></h3> 
+	</div>
+
+ 
+</html>
+ 

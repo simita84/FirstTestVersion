@@ -13,8 +13,6 @@ class RecipesController < ApplicationController
    end
 
 
-  
-
   def update
        #Find the object using form parameters
        @recipe=Recipe.find(params[:id])

@@ -1,0 +1,49 @@
+<html>
+ 
+
+<body>
+	
+	
+<div class="hero-unit">
+
+	 
+<%=form_for(:admin,:url=>{:action=>'create'}) do |f| %>
+ 
+<table class="table">
+<tr>
+<th>First Name</th>
+<td>	<%=f.text_field(:first_name)%></td>
+<tr>
+<th>Last Name</th>
+<td>
+		<%=f.text_field(:last_name)%></td>
+		</tr>
+		<tr>
+<th>Username</th>
+		<td>
+				<%=f.text_field(:username)%></td>
+				</tr>
+				
+				<tr>
+					<th>EmailId</th>
+					<td>
+							<%=f.text_field(:emailId)%></td>
+							</tr>
+								<tr>
+								<th>Password</th>
+								<td>
+										<%=f.password_field(:hashed_password)%></td>
+										</tr>
+				
+	 <td>
+	<div class="btn">	<%=submit_tag("Create Admin user")%> </div></td>
+		<td><div class="btn"><%=link_to("Cancel",:action=>'list') %></div></td>
+		
+		</tr>
+	<%end%>
+<tr> <%=flash[:notice]%> </tr>
+ </table>
+	</div>
+	</body>
+	</html>
+	 
