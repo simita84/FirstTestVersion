@@ -1,27 +1,20 @@
 <html>
- 
-
 <body>
-	
-	
-<div class="hero-unit">
-
-	 
-<%=form_for(:recipe,:url=>{:action=>'createRecipes'},:member_username=>session[:username]) do |f| %>
- 
+	<div class="hero-unit">
+		<%=form_for(:recipe,:url=>{:action=>'createRecipes'}) do |f| %>
 <table class="table">
-<tr>
-<th>Recipe Title</th>
-<td>	<%=f.text_field(:title)%></td>
-<tr>
-<th>Instructions</th>
-<td>
-		<%=f.text_area(:content)%></td>
-		</tr>
+ 	<tr>
+		<th>Recipe Title</th>
+		<td><%=f.text_field(:title)%></td> </tr>
 		<tr>
-<th>Submitted by</th>
-		<td>
-				<%= session[:username]%></td>
+			<th>Instructions</th>
+			<td>
+		<%=f.text_area :content,size: "60x12" %></td>
+			</tr>
+			<tr>
+				<th>Author</th>
+				<td>
+				<%= session[:username] %></td>
 				</tr>
  		 <tr><td>
 	<div class="btn">

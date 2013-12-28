@@ -8,24 +8,25 @@ class MemberController < ApplicationController
   end
 
   def showAccountInfo
-     @user=Member.where(:username=>session[:username])
+    @member_user=Member.find_by_username(session[:username])
+    # @member_user=Member.where(:username=>session[:username])
   end
  
    def listRecipes
-     # @recipes=Recipe.order("recipes.created_at DESC")
+     @recipes=Recipe.order("recipes.created_at DESC")
        #@recipes=Recipe.order("recipes.created_at ASC")
-       @recipes = Recipe.all
+      # @recipes = Recipe.all
    end
    
    
    def newRecipes
+       
         @recipe=Review.new
-     
-   end
+    end
   
    def createRecipes
      @recipe=Recipe.new(params[:recipe]) 
-     
+      @recipe.update_attributes(:member_username=>session[:username])
      #Save the object
        if @recipe.save
      #If save succeeds redirect to list 
@@ -33,17 +34,50 @@ class MemberController < ApplicationController
        redirect_to(:action=>'listRecipes')
      #else redislay the form so user can fix the problem
        else
-         flash[:notice]= "Recipe"+ @recipe.username+" cannot be added. "
+         flash[:notice]= "Recipe  "+ @recipe.title+"  cannot be added. "
            render('newRecipes')
        end
    end
 
-
+    def editRecipes
+        #Find the object using form parameters
+        @recipe=Recipe.find(params[:id])
+        @recipe_count=Recipe.count
+    end
+ 
+    def updateRecipes
+         #Find the object using form parameters
+         @recipe=Recipe.find(params[:id])
+         #update with new values
+         @recipe.update_attributes(params[:recipe])
+         #Save the object
+          if @recipe.save
+                #If update succeeds redirect to list 
+           flash[:notice]= "Recipe for --"+@recipe.title+"--updated successfully"
+              redirect_to(:action=>'listRecipes',:id=>@recipe.id)
+         else
+           #if save fails ,rediplay the form so user can fix problems
+           flash[:notice]= "Recipe for  "+ @recipe.title+" cannot be updated. "
+            @recipe_count=Recipe.count
+             render('editRecipes')
+         end
+ end
  
  
- 
- 
- 
+ def deleteRecipes
+   #Find the object using form parameters
+   @recipe=Recipe.find(params[:id])
+   end
+ def destroyRecipes
+      #Find the object using form parameters
+      @recipe=Recipe.find(params[:id])
+       if @recipe.destroy
+         flash[:notice]="Recipe for   "+@recipe.title+" deleted successfully"
+          redirect_to(:action =>'listRecipes')  
+          else
+             flash[:notice]="Recipe for    "+@recipe.title+" cannot be deleted"   
+       end
+ end
  
  
  
@@ -57,13 +91,13 @@ class MemberController < ApplicationController
  
  
   def listProducts
-     @products=Product.order("products.index ASC")
+     @products=Product.order("products.index DESC")
   end
 
   
 
   def listReviews
-     @products=Product.order("products.created_at ASC")
+     @products=Product.order("products.created_at DESC")
      @reviews = Review.order("reviews.created_at DESC").where(:product_id=>@product.id)
   end
   

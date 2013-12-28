@@ -5,6 +5,9 @@
 
 	
 	<div class="hero-unit">
+		
+		<div class="btn">	<%=link_to("Back Home",:controller=>'member',:action=>'index')%></div>
+
 		<div class="btn">
 			<%=link_to("Create new Recipes",:action=>'newRecipes')%> </div>
 		<div><%= pluralize(@recipes.size, 'recipe') %> found</div>
@@ -14,33 +17,33 @@
 		<table class="table">
 
 
-			<% @recipes.each do |recipe|%>
+	<% @recipes.each do |recipe|%>
 			<tr align ="left">	<th><%=recipe.title	%></th>         </tr>     				 
 
 					<tr align ="left">
 						<td>	<%= word_wrap(recipe.content,:line_width=>30)%></td> </tr> 	 
 
-						<tr> <td> Posted by :<%=recipe.member_username%></td>
+						<tr> <td> <b>Author:</b><%=recipe.member_username%></td> </tr>
 
-		<td> 				
-				<% if recipe.member_username == session[:username]%>
-		 <li>
-		 <%= link_to "EDIT",  { :controller=>"member", :action=>"edit", :id=>"recipe.id"} %>
-		 <%= link_to "DELETE",  { :controller=>"member", :action=>"delete", :id=>"recipe.id"} %>
-			 </li>
-							        <% end %>
-							</td>
-
-
-
-
-
-							</tr>	   
-			 	<%end%>	
+					
+		<% if recipe.member_username == session[:username]%>
+ 
+			<tr><td> 	
+				<div class="btn">
+			 <%= link_to "Modify Recipe",  { :controller=>"member", :action=>"editRecipes", :id=>recipe.id} %>
+				</div>
+			 
+		  
+				<div class="btn">
+				<%= link_to "Remove Recipe",  { :controller=>"member", :action=>"deleteRecipes", :id=>recipe.id} %>
+				</div>
+			</td>
+ 
+		<% end %>
+			 			</tr>	   
+	<%end%>	
 			</table>
- 
-<div class="btn">	<%=link_to("Back Home",:controller=>'member',:action=>'index')%></div>
- 
+
 </div>
 </body>
 </html>

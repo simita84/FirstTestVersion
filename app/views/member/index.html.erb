@@ -6,42 +6,10 @@
 						<div class="hero-unit">             
 	 
 						<h3 align="left">{AVATAR}  Welcome,ClubbyKid Member</h3>
- 
- 	<table class="table">
+     
+ 	<%=link_to("Show Account Info",:controller=>'member',:action=>'showAccountInfo')%>
 	
-		<tr><th> Account Details</th></tr>
-		<tr>
-			<td>Email ID: </td>
-			<td><%=session[:username]%> </td>
-		</tr>
-		
-			<tr>
-				<td>First Name: </td>
-				<td>user.first_name</td>
-			</tr>
-			
-				<tr>
-					<td>Last Name: </td>
-					<td>user.last_name</td>
-				</tr>
-				<tr>
-					<td>Member Since: </td>
-					<td>user.created_at</td>
-				</tr>
-					<tr>
-						<td>Last Access: </td>
-						<td>user.updated_at</td>
-					</tr>
-				
-				
-				
-				
-
- 
-
-
-	
- 		 <%=flash[:notice]%>
+ 	 
  
 
 </div>

@@ -1,0 +1,38 @@
+
+<html>
+
+<body>
+	 
+<div class="hero-unit">
+
+<table class="table">
+
+	<table class="table">
+	
+		<tr><th> Account Details</th></tr>
+		<tr>
+			<td>Email ID: </td>
+			
+			<td><%=session[:username]%> </td>
+		</tr>
+		
+		<tr>
+			<td>First Name: </td>
+			<td><%=@member_user.first_name%></td>
+		</tr>
+			
+				<tr>
+					<td>Last Name: </td>
+					<td><%=@member_user.last_name%></td>
+				</tr>
+				<tr>
+					<td>Member Since: </td>
+					<td><%=@member_user.created_at.to_time.strftime('%e %b %Y %H:%m:%S')%></td>
+				</tr>
+				 
+				
+			
+<div class="btn">	<%=link_to("Back Home",:controller=>'member',:action=>'index')%></div>
+
+</body>
+</html>
