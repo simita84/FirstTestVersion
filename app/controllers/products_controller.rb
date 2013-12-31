@@ -10,7 +10,7 @@ class ProductsController < ApplicationController
   def list
     
    # @products=Product.all
-   @products=Product.order("products.index ASC")
+   @products=Product.order("products.id DESC")
   end
   
   def new

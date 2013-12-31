@@ -4,6 +4,7 @@ class MemberController < ApplicationController
     before_filter :find_product
     before_filter :confirm_member_logged_in
   def index
+     @homes=Home.all
      render("index")
   end
 
@@ -12,6 +13,11 @@ class MemberController < ApplicationController
     # @member_user=Member.where(:username=>session[:username])
   end
  
+  def listContactInfo
+    @contacts=Contact.all
+   end
+
+
    def listRecipes
      @recipes=Recipe.order("recipes.created_at DESC")
        #@recipes=Recipe.order("recipes.created_at ASC")
@@ -79,23 +85,73 @@ class MemberController < ApplicationController
        end
  end
  
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
-  def listProducts
-     @products=Product.order("products.index DESC")
-  end
-
   
+ 
+ def listItems
+              @items=Item.order("items.created_at DESC")
+end
+def newItems
+             @item=Item.new
+end
+ 
+def createItems
+        @item=Item.new(params[:item]) 
+        @item.update_attributes(:member_username=>session[:username])
+    #Save the object
+        if @item.save
+    #If save succeeds redirect to list 
+        flash[:notice]= "Item --"+@item.name+"--created successfully"
+        redirect_to(:action=>'listItems')
+    #else redislay the form so user can fix the problem
+        else
+          flash[:notice]= "Item  "+ @item.name+"  cannot be added. "
+          render('newItems')
+        end
+      end
 
+def editItems
+       #Find the object using form parameters
+       @item=Item.find(params[:id])
+       @item_count=Item.count
+end
+
+   def updateItems
+        #Find the object using form parameters
+        @item=Item.find(params[:id])
+        #update with new values
+        @item.update_attributes(params[:item])
+        #Save the object
+         if @item.save
+               #If update succeeds redirect to list 
+          flash[:notice]= "Item  --"+@item.name+"--updated successfully"
+             redirect_to(:action=>'listItems',:id=>@item.id)
+        else
+          #if save fails ,rediplay the form so user can fix problems
+          flash[:notice]= "Item "+ @item.name+" cannot be updated. "
+           @item_count=Item.count
+            render('editItems')
+        end
+end
+
+
+def deleteItems
+  #Find the object using form parameters
+  @item=Item.find(params[:id])
+  end
+def destroyItems
+     #Find the object using form parameters
+     @item=Item.find(params[:id])
+      if @item.destroy
+        flash[:notice]="Item "+@item.name+" deleted successfully"
+         redirect_to(:action =>'listItems')  
+         else
+            flash[:notice]="Item     "+@item.name+" cannot be deleted"   
+      end
+end
+  
+  def listProducts
+     @products=Product.order("products.id DESC")
+  end
   def listReviews
      @products=Product.order("products.created_at DESC")
      @reviews = Review.order("reviews.created_at DESC").where(:product_id=>@product.id)
@@ -128,7 +184,7 @@ class MemberController < ApplicationController
        #Find the object using form parameters
        @review=Review.find(params[:id])
        @review_count=Review.count
-       @products=Product.order('index ASC')
+       @products=Product.order('id ASC')
        end
 
     def updateReviews
@@ -145,7 +201,7 @@ class MemberController < ApplicationController
            #if save fails ,rediplay the form so user can fix problems
            flash[:notice]= "Review for "+ @review.title+" cannot be updated. "
             @review_count=Review.count
-            @products=Product.order('index ASC')
+            @products=Product.order('id ASC')
             render('editReviews')
          end
  end
@@ -172,8 +228,7 @@ class MemberController < ApplicationController
   def attempt_login
   end
 
-  def listMembers
-  end
+  
   def logout
     #storing session info
          session[:member_id]= nil

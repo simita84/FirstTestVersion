@@ -1,0 +1,35 @@
+
+<html>
+ <body>
+ 	<div class="hero-unit">
+ 
+<%=form_for(:item,:url=>{:action=>'destroyItems',:id =>@item.id}) do |f| %>
+  	
+	<h3>Do u Want to delete the following item?</h3>
+
+<table class="table"> 
+	<tr>
+		<th>
+ 		<%=@item.name%>
+		</th>
+	</tr>
+	<tr>
+		 <td>
+	 		<%=@item.content%> 
+		</td>
+	</tr>	
+	 <tr>
+			<td>
+					<div class="btn"><%=submit_tag("Confirm Delete")%> </div>
+ 					<div class="btn"><%=link_to("Cancel",:action=>'listItems')%> </div>
+			</td> 
+	</tr>
+	
+</table>
+
+	<%end%>
+		</div>
+
+</body>
+</html>
+

@@ -8,6 +8,29 @@
  * Designed and built with all the love in the world by @mdo and @fat.
  */
 
+
+
+
+
+body {
+	
+  margin: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  line-height: 20px;
+  color: #333333;
+
+  background-color: #2B313B;
+background-image: url("/images/kids.jpeg") ; 
+}
+
+body p
+{
+	font-size: 13px;
+	
+}
+
+
 .clearfix {
   *zoom: 1;
 }
@@ -235,17 +258,6 @@ textarea {
   }
 }
 
-body {
-  margin: 0;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-
-	 
-  font-size: 14px;
-  line-height: 20px;
-  color: #333333;
-  background-color: #ffffff;
-background-image: url("/images/kids.jpeg") ; 
-}
 
 a {
   color: #0088cc;
@@ -674,6 +686,7 @@ p {
   font-size: 15px;
   font-weight: 200;
   line-height: 30px;
+	text-align:justify;
 }
 
 small {
@@ -1291,12 +1304,19 @@ textarea::-webkit-input-placeholder {
 
 .logged
 {
-	  color: #FFFF00;
+	  color: #00000F;
 	  font-size: 15px;
-	background-color: #00000F;
-	  text-align: center;
+	 text-align: left;
+	 
 	
-	
+}
+
+.myprofile
+{
+  color: #FFFF00;
+text-align:right;
+ font-size: 15px;
+ 
 }
 
 .radio.inline,
@@ -6150,6 +6170,14 @@ a.badge:focus {
 }
 
 .hero-unit {
+	background: rgb(254,252,234); /* Old browsers */
+	background: -moz-linear-gradient(top, rgba(254,252,234,1) 0%, rgba(241,218,54,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(254,252,234,1)), color-stop(100%,rgba(241,218,54,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, rgba(254,252,234,1) 0%,rgba(241,218,54,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, rgba(254,252,234,1) 0%,rgba(241,218,54,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, rgba(254,252,234,1) 0%,rgba(241,218,54,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom, rgba(254,252,234,1) 0%,rgba(241,218,54,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fefcea', endColorstr='#f1da36',GradientType=0 ); /* IE6-9 */
   padding: 60px;
   margin-bottom: 30px;
   font-size: 18px;
@@ -6157,7 +6185,7 @@ a.badge:focus {
   line-height: 30px;
  
   color:inherit;
-  background-color: #FFFF99; 
+   
   -webkit-border-radius: 6px;
      -moz-border-radius: 6px;
           border-radius: 6px;

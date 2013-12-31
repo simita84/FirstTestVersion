@@ -1,0 +1,53 @@
+<html>
+ 
+
+<body>
+	
+	
+<div class="hero-unit">
+
+<div class="btn">
+<%= link_to("Back to Admin Menu", {:controller => 'access', :action => 'menu'}) %>
+	</div>  
+
+
+
+	<div class="category list">
+	  <h2>Event List</h2>
+
+<div class="btn">
+		 <%= link_to("Add New Event", :action => "newEvents") %>
+		</div> 
+ 
+	 <div><%= pluralize(@events.size, 'Event') %> found </div>
+
+	  <table class="table">
+	    <tr class="header">
+	      <th>Event Name</th>
+	      <th>Event Address</th>
+	      <th>When </th>
+	      <th>Duration</th>
+	      <th>Actions</th>
+	    </tr>
+	    <% @events.each do |event| %>
+	    
+	      <td><%=raw event.name %></td>
+	      <td><%= event.address %></td>
+	      <td><%= event.datetime %></td>
+	     <td><%= event.duration %></td>
+	     <td>
+<%= link_to("Guests List",  {:controller => 'invitees',:action => 'index', :event_id => event.id }) %>
+	 <%= link_to("Show",:action => 'showEvents', :id => event.id) %>
+	        <%= link_to("Edit", :action => 'edit', :id => event.id) %>
+	        <%= link_to("Delete",:action => 'delete', :id => event.id) %>
+
+	      </td>
+	    </tr>
+	    <% end %>
+	  </table>
+	</div>
+
+ </div>
+</body>
+</html>
+

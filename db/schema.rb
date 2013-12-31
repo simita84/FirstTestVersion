@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131227205741) do
+ActiveRecord::Schema.define(:version => 20131230050049) do
 
   create_table "admins", :force => true do |t|
     t.string   "first_name"
@@ -34,6 +34,19 @@ ActiveRecord::Schema.define(:version => 20131227205741) do
     t.datetime "updated_at",               :null => false
   end
 
+  create_table "events", :force => true do |t|
+    t.string   "name",           :limit => 150
+    t.datetime "datetime"
+    t.string   "duration",       :limit => 150
+    t.string   "address",        :limit => 300
+    t.text     "description"
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.string   "admin_username",                :null => false
+  end
+
+  add_index "events", ["admin_username"], :name => "index_events_on_admin_username"
+
   create_table "homes", :force => true do |t|
     t.string   "title"
     t.text     "content"
@@ -42,7 +55,6 @@ ActiveRecord::Schema.define(:version => 20131227205741) do
   end
 
   create_table "items", :force => true do |t|
-    t.integer  "index",           :null => false
     t.string   "name",            :null => false
     t.text     "content"
     t.datetime "created_at",      :null => false
@@ -65,7 +77,6 @@ ActiveRecord::Schema.define(:version => 20131227205741) do
   add_index "members", ["username"], :name => "index_members_on_username"
 
   create_table "products", :force => true do |t|
-    t.integer  "index",      :null => false
     t.string   "title",      :null => false
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
@@ -82,7 +93,6 @@ ActiveRecord::Schema.define(:version => 20131227205741) do
   add_index "recipes", ["member_username"], :name => "index_recipes_on_member_username"
 
   create_table "reviews", :force => true do |t|
-    t.integer  "index"
     t.integer  "product_id",                    :null => false
     t.string   "title",           :limit => 25, :null => false
     t.text     "content"

@@ -1,9 +1,15 @@
 require "digest/sha1"
 
 class Admin < ActiveRecord::Base
+  
+  #mapping to events
+  has_many :events
+  
    # attr_accessible :title, :body
     before_save :create_hashed_password
     after_save :clear_password
+
+
 
   #scope to sort by name
     scope :sorted,order("admin_users.last_name ASC,admin_users.first_name ASC")

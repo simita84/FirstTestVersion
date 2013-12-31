@@ -1,20 +1,41 @@
-<html>
+<!DOCTYPE html>
+ <html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Welcome</title>
+ <link href="/public/stylesheets/bootstrap.css" rel="stylesheet" type="text/css" />
 
+</head>
 <body>
- 	<div class="logged">Hello! <%= session[:username]%> </div>
-					<div class="container">	
-						<div class="hero-unit">             
-	 
-						<h3 align="left">{AVATAR}  Welcome,ClubbyKid Member</h3>
-     
- 	<%=link_to("Show Account Info",:controller=>'member',:action=>'showAccountInfo')%>
+		<div class="container">
+			 
+	<div class="hero-unit">
+	  
 	
- 	 
- 
-
-</div>
-</div>
+		           
+		<%@homes.each do |home|%>
+			<h1>About Us</h1>   
+		<center> <img src="/tots.jpg" class="img-polaroid"/></center>
+<p>   
+		<div class="lead">
+		<%=simple_format(word_wrap(home.content,:line_width=>440))%> </div>
+	<%end%> 
+</p>
+ 				</div>
+			</div>
+			 
+		</div>
+	
+	</div> 
+	
+	
+	 
 
 </body>
 </html>
+
+
+
+
+
  

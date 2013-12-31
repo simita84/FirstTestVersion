@@ -17,7 +17,7 @@
 	<br>
 <table class="table">
 
-	<th>		<%=" INDEX"%> </th>
+ 
 	<th>	<%="TITLE"%>  </th>   	 
 	 	 
 			<th>		<%="Actions"%></th>
@@ -25,9 +25,7 @@
  
 <tr>
 	<%@products.each do |product|%>
-	<td><%=product.index%>        </td>         				 
-          		 		 
-	
+  	 
 		<td><%=link_to(product.title, :controller=>'reviews', :action=>'list', :product_id=>product.id)%></td>	 	
 	 <td> <%=link_to("EDIT",:action=>'edit',:id=>product.id)%>	 
 			 <%=link_to("DELETE",:action=>'delete',:id=>product.id)%>	</td>	  

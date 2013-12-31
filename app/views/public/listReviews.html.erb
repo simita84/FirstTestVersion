@@ -40,7 +40,7 @@
 	<% @reviews.each do |review|%>
 <tr align ="left">	
 	
-	<td><div class="text-error"><%=review.index%>.<%=review.title	%></div></td>         </tr>     				 
+	<td><div class="text-error"><%=review.title	%></div></td>         </tr>     				 
            		 		 
 			<tr align ="left">
 				<td><div class="lead">	<%= word_wrap(review.content,:line_width=>500)%></div></td> </tr> 	 

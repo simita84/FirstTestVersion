@@ -1,0 +1,51 @@
+
+<html>
+ 
+
+<body>
+	
+	
+<div class="hero-unit">
+
+
+<% @the_web_page_title = "Show category: #{@event.name}" %>
+<div class="btn">
+<%= link_to("Back to List", {:action => 'listEvents'}) %> </div>
+
+<div class="table">
+  <h2>Show Event</h2>
+   <table summary="Category detail view">
+    <tr>
+      <th>Name</th>
+      <td><%= @event.name %></td>
+    </tr>
+    <tr>
+      <th>Address</th>
+      <td><%= @event.address%></td>
+    </tr>
+    <tr>
+      <th>When</th>
+      <td><%= @event.datetime%></td>
+    </tr>
+	<tr>
+      <th>Event Description</th>
+      <td><%= @event.description%></td>
+    </tr>
+    <tr>
+      <th>Created</th>
+      <td><%= @event.created_at %></td>
+    </tr>
+ <tr>
+      <th>Created By</th>
+      <td><%= @event.admin_username %></td>
+    </tr>
+  </table>
+  
+</div>
+
+ 
+ 
+
+</div>
+</body>
+</html>

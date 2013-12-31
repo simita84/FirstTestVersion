@@ -1,0 +1,32 @@
+<html>
+<body>
+	<div class="hero-unit">
+		<%=form_for(:item,:url=>{:action=>'createItems'}) do |f| %>
+<table class="table">
+ 	<tr>
+		<th>Item Title</th>
+		<td><%=f.text_field(:name)%></td> </tr>
+		<tr>
+			<th>Instructions</th>
+			<td>
+		<%=f.text_area :content,size: "60x12" %></td>
+			</tr>
+			<tr>
+				<th>Listed By</th>
+				<td>
+				<%= session[:username] %></td>
+				</tr>
+ 		 <tr><td>
+	<div class="btn">
+			<%=submit_tag("Create item")%> 
+			</div></td> 
+		<td><div class="btn"><%=link_to("Cancel",:action=>'listItems') %></div></td>
+		
+		</tr>
+	<%end%>
+<tr> <%=flash[:notice]%> </tr>
+ </table>
+	</div>
+	</body>
+	</html>
+	 

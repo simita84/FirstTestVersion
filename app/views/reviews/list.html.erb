@@ -26,7 +26,7 @@
  
 <tr>
 	<% @reviews.each do |review|%>
-	<td><%=review.index%>        </td>         				 
+        				 
            		 		 
 		<td>	<%=review.title	%></td> 	
 				<td>	<%=simple_format(word_wrap(review.content,:line_width => 150))	%></td> 

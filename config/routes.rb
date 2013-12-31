@@ -1,6 +1,18 @@
 Clubbykids::Application.routes.draw do
    
  
+  get "events/index"
+
+  get "events/listEvents"
+
+  get "events/showEvents"
+
+  get "events/createEvents"
+
+  get "events/editEvents"
+
+  get "events/deleteEvents"
+
   get "member/index"
 
   get "member/listProducts"

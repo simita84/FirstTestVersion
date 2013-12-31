@@ -1,0 +1,60 @@
+ 
+<html>
+ 
+
+<body>
+	
+	
+<div class="hero-unit">
+	
+
+<div class="subject new">
+  <h2>Create Event</h2>
+
+<%= "You are adding the category number : #{@event_count}"%>
+
+  <%= form_for(:event, :url => {:action => 'createEvents'}) do |f| %>
+  
+  <table summary="Subject form fields">
+
+  <tr>
+    <th>Event Name</th>
+    <td><%= f.text_field(:name) %></td>
+  </tr>
+  <tr>
+    <th>Address</th>
+    <td><%= f.text_field(:address) %></td>
+  </tr>
+  <tr>
+    <th>When</th>
+    <td><%= f.datetime_select(:datetime) %></td>
+  </tr>
+  <tr>
+    <th>Duration</th>
+    <td><%= f.text_field(:duration) %></td>
+  </tr>
+<tr>
+    <th>Description</th>
+    <td><%= f.text_area(:description,size: "60x12") %></td>
+  </tr>
+<tr>
+    <th>Created By:</th>
+    <td><%=session[:username]%></td>
+  </tr>
+<tr>
+	<td>
+	<div class="btn">
+    <%= submit_tag("Create Event") %>
+  </div></td>
+<td>	<div class="btn">
+<%= link_to("Cancel", {:action => 'listEvents'}) %> </div></td>
+</tr>
+</table>
+    
+    
+  <% end %>
+</div>
+
+</div>
+</body>
+</html>

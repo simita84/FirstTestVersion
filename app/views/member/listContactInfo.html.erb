@@ -1,0 +1,30 @@
+<html>
+
+<body>
+	<div> Logged in as <%= session[:username]%> </div>	
+
+	
+	<div class="hero-unit">
+		
+		<div class="btn">	<%=link_to("Back Home",:controller=>'member',:action=>'index')%></div>
+
+		<% @contacts.each do |contact|%>
+	<table class="table">
+		
+		<tr>
+		<th>We are</th>
+		<td><%=contact.name%></td>
+		</tr>
+		<tr>
+		<th>EMail Us @</th>
+		<td><%=contact.emailid%></td>
+		</tr>
+		<tr>
+		<th>Find Us On </th>
+		<td><a href=""><%=contact.facebook%></a></td>
+		</tr>
+	
+		</table>
+		
+		<%end%>
+		 

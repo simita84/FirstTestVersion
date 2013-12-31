@@ -1,0 +1,49 @@
+<html>
+
+<body>
+ 
+
+	
+	<div class="hero-unit">
+		
+		<div class="btn">	<%=link_to("Back Home",:controller=>'member',:action=>'index')%></div>
+
+		<div class="btn">
+			<%=link_to("Create new items",:action=>'newItems')%> </div>
+		<div><%= pluralize(@items.size, 'item') %> found</div>
+	
+		<h3>items </h3>
+
+		<table class="table">
+
+
+	<% @items.each do |item|%>
+			<tr align ="left">	<th><%=item.name	%></th>         </tr>     				 
+
+					<tr align ="left">
+						<td>	<%= simple_format(item.content,:line_width=>30)%></td> </tr> 	 
+
+						<tr> <td> <b>Author:</b><%=item.member_username%></td> </tr>
+
+					
+		<% if item.member_username == session[:username]%>
+ 
+			<tr><td> 	
+				<div class="btn">
+			 <%= link_to "Modify Item",  { :controller=>"member", :action=>"editItems", :id=>item.id} %>
+				</div>
+			 
+		  
+				<div class="btn">
+				<%= link_to "Remove Item",  { :controller=>"member", :action=>"deleteItems", :id=>item.id} %>
+				</div>
+			</td>
+ 
+		<% end %>
+			 			</tr>	   
+	<%end%>	
+			</table>
+
+</div>
+</body>
+</html>

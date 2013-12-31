@@ -1,10 +1,11 @@
 <html>
 
 <body>
-	<div> Logged in as <%= session[:username]%> </div>	
+
 
 	
 	<div class="hero-unit">
+		 
 		
 		<div class="btn">	<%=link_to("Back Home",:controller=>'member',:action=>'index')%></div>
 
@@ -21,7 +22,7 @@
 			<tr align ="left">	<th><%=recipe.title	%></th>         </tr>     				 
 
 					<tr align ="left">
-						<td>	<%= word_wrap(recipe.content,:line_width=>30)%></td> </tr> 	 
+						<td> 	<%= simple_format(recipe.content,:line_width=>440)%></td> </tr> 	 
 
 						<tr> <td> <b>Author:</b><%=recipe.member_username%></td> </tr>
 

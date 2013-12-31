@@ -37,6 +37,10 @@ class AccessController < ApplicationController
         flash[:notice]=" Successfully logged out"
          redirect_to(:controller=>'access',:action=>'login')
   end
+  
+ 
+  
+  
    #List all the member users
    def listMembers
 

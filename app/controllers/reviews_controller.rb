@@ -10,7 +10,7 @@ class ReviewsController < ApplicationController
   end
 
   def list
-  @reviews = Review.order("reviews.index ASC").where(:product_id=>@product.id) 
+  @reviews = Review.order("reviews.id DESC").where(:product_id=>@product.id) 
   #@reviews = Review.where(:product_id=>@product.id) 
   end
 
@@ -21,7 +21,7 @@ class ReviewsController < ApplicationController
     #Find the object using form parameters
     @review=Review.find(params[:id])
     @review_count=Review.count
-    @products=Product.order('index ASC')
+    @products=Product.order('id DESC')
     end
 
  def update
@@ -38,7 +38,7 @@ class ReviewsController < ApplicationController
         #if save fails ,rediplay the form so user can fix problems
         flash[:notice]= "Review for "+ @review.title+" cannot be updated. "
         @review_count=Review.count
-        @products=Product.order('index ASC')
+        @products=Product.order('id ASC')
         render('edit')
       end
   end
