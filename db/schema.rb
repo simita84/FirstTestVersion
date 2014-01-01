@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(:version => 20131230050049) do
 
-  create_table "admins", :force => true do |t|
+  create_table "admin_users", :force => true do |t|
     t.string   "first_name"
     t.string   "last_name"
     t.string   "username",        :limit => 25, :null => false
@@ -24,7 +24,12 @@ ActiveRecord::Schema.define(:version => 20131230050049) do
     t.datetime "updated_at",                    :null => false
   end
 
-  add_index "admins", ["username"], :name => "index_admin_users_on_username"
+  add_index "admin_users", ["username"], :name => "index_admin_users_on_username"
+
+  create_table "admins", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "contacts", :force => true do |t|
     t.string   "name",       :limit => 25, :null => false
@@ -59,9 +64,11 @@ ActiveRecord::Schema.define(:version => 20131230050049) do
     t.text     "content"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+    t.integer  "member_emailid",  :null => false
     t.string   "member_username", :null => false
   end
 
+  add_index "items", ["member_emailid"], :name => "index_items_on_member_emailid"
   add_index "items", ["member_username"], :name => "index_items_on_member_username"
 
   create_table "members", :force => true do |t|
@@ -87,9 +94,11 @@ ActiveRecord::Schema.define(:version => 20131230050049) do
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false
     t.string   "title",           :limit => 50, :null => false
+    t.integer  "member_emailid",                :null => false
     t.string   "member_username",               :null => false
   end
 
+  add_index "recipes", ["member_emailid"], :name => "index_recipes_on_member_emailid"
   add_index "recipes", ["member_username"], :name => "index_recipes_on_member_username"
 
   create_table "reviews", :force => true do |t|
@@ -105,11 +114,6 @@ ActiveRecord::Schema.define(:version => 20131230050049) do
   add_index "reviews", ["product_id"], :name => "index_reviews_on_product_id"
 
   create_table "signs", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "stuffs", :force => true do |t|
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
