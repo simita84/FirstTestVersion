@@ -1,2 +1,30 @@
-<h1>Events#editEvents</h1>
-<p>Find me in app/views/events/editEvents.html.erb</p>
+<html>
+ 
+
+<body>
+	
+	
+<div class="hero-unit">
+
+<% @the_web_page_title = "Edit category: #{@event.name}" %>
+
+
+<div class="subject edit">
+  <h2>Edit Event</h2>
+ 
+  <%= form_for(:event, :url => {:action => 'updateEvents', :id => @event.id}) do |f| %>
+  
+  <%= render(:partial => "form", :locals => {:f => f}) %>
+    
+    <div class="btn">
+      <%= submit_tag("Update Event") %>    </div>
+  
+	<%= link_to("Back to Event List", {:action => 'listEvents'},:class=>"btn") %>
+
+
+    
+  <% end %>
+</div>
+
+</body>
+</html>

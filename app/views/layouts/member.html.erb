@@ -1,84 +1,52 @@
 <!DOCTYPE html>
 <html>
 <head>
-	
-  
-   <link  href="/stylesheets/bootstrap.css" rel="stylesheet"  type="text/css"/>
-
-
-  <title>Clubby Kids</title>
-</head>
-<body>
-	
-	
-	
-	<div class="mainHead"> Clubby Kids</div>
-	
-
-
-  	<div id="container">
-
-
-<div class="navbar">
+ <link  href="/stylesheets/bootstrap.css" rel="stylesheet"  type="text/css"/>
+ <title>Clubby Kids</title>
+	</head>
+	<body>
+ 	<div class="mainHead"> Clubby Kids</div>
+ 
+  	<div class="container">
+		<div class="navbar">
               <div class="navbar-inner">
-                <div class="container">
+              	<div class="container">
                   <ul class="nav">
                     <li><%=link_to("Home",:controller=>'member',:action=>'index')%></li>
-				 	<li><%=link_to("Events",:controller=>'member',:action=>'events')%></li>
+				 	<li><%=link_to("Events",:controller=>'member',:action=>'listEvents')%></li>
 					<li><%=link_to("Reviews",:controller=>'member',:action=>'listProducts')%></li>
 					<li><%=link_to("Kids Recipes",:controller=>'member',:action=>'listRecipes')%></li>
 					<li><%=link_to("Kids Items",:controller=>'member',:action=>'listItems')%></li>
 					<li><%=link_to("Contact Us",:controller=>'member',:action=>'listContactInfo')%></li>
-				
-	</ul>
-	
-	
-					<ul class="nav">  
-					  <li class="dropdown">  
-					    <a href="#"  
-					          class="dropdown-toggle"  
-					          data-toggle="dropdown">  
-					          <%=session[:username]%>
-					          <b class="caret"></b>  
-					    </a>  
-						<ul class="dropdown-menu">  
-	 
-	<li><a href="#"><%=link_to("Account Details",:controller=>'member',:action=>'listAccountInfo')%></a></li>  
-	<li><a href="#"><%=link_to("Logout",:controller=>'member',:action=>'logout')%></a></li>  
-	
-					   
-					    </ul>  
-					  </li>  
-					</ul>  
-	 
-	 
-                </div>
-	
-              </div>
+				 	<li><%=link_to("AccountInfo",:controller=>'member',:action=>'showAccountInfo')%></li>
+			 
+						<% if session[:member_id] && session[:username] %>
+					 <li>
+					   <%=link_to("Logout",:controller=>'member',:action=>'logout')%>
+					 </li>
+					    <% else %>
+					         <li>	<%=link_to("SignUp",:controller=>'public',:action=>'SignUp')%></li>
+							 <li>	<%=link_to("Login",:controller=>'public',:action=>'login')%></li>                
+				   		<% end %>     
+			 	
+					</ul>
+		 		</div> 
+	 		</div>
+	 	 </div>
+ 
 
-            </div>
-  
-			 
-			 
-				 
-			
+
+
 
 <%= yield %>
-	</div>
-	</div>
+
+
+  
 
  </div>
 	
+ <%= javascript_include_tag "application" %>
  
-
-
-<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-<script src="javascripts/bootstrap.js"></script>
-
-<script src="twitter-bootstrap-v2/docs/assets/js/jquery.js"></script>  
-<script src="twitter-bootstrap-v2/docs/assets/js/bootstrap-dropdown.js"></script> 
- 
-
 
 </body>
 	

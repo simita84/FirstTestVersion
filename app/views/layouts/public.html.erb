@@ -11,10 +11,8 @@
 	
 	
 	<div class="mainHead"> Clubby Kids</div>
-	
-	
-
-  	<div id="container">
+ 
+  	<div class="container">
 
 
 <div class="navbar">
@@ -22,7 +20,7 @@
                 <div class="container">
                   <ul class="nav">
                     <li><%=link_to("Home",:controller=>'public',:action=>'index')%></li>
-				 	<li><%=link_to("Events",:controller=>'members',:action=>'events')%></li>
+				 	<li><%=link_to("Events",:controller=>'public',:action=>'login')%></li>
 					<li><%=link_to("Reviews",:controller=>'public',:action=>'listProducts')%></li>
 					<li><%=link_to("Kids Recipes",:controller=>'public',:action=>'listRecipes')%></li>
 					<li><%=link_to("Kids Items",:controller=>'public',:action=>'listItems')%></li>

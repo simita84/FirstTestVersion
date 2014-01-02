@@ -1,18 +1,15 @@
 class PublicController < ApplicationController
    layout 'public'
- 
    before_filter :find_product
     
   def index
-  
-  @homes=Home.all
+     @homes=Home.all
   end
    
    
    def login
-     render('login')
-     
-   end
+    render('login')
+  end
      
      
      def attempt_login
@@ -27,8 +24,7 @@ class PublicController < ApplicationController
 
             #directing to authorized pages
              redirect_to(:controller=>"member",:action=>'index')
-
-
+ 
           else
             flash[:notice]="Not able to  log in,please try again"
               redirect_to(:controller=>'public',:action=>'login')

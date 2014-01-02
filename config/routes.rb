@@ -1,6 +1,16 @@
 Clubbykids::Application.routes.draw do
    
  
+  get "invitees/index"
+
+  get "invitees/eventInfo"
+
+  get "invitees/new"
+
+  get "invitees/sendEventInvite"
+
+  get "invitees/memberResponseHandler"
+
   get "events/index"
 
   get "events/listEvents"

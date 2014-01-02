@@ -1,0 +1,15 @@
+<%= link_to("<< Back to Guests", {:action => 'index', :event_id => @event.id}) %>
+
+<div>
+  <h2>New guest </h2>
+
+  <%= form_for(:invitee, :url => {:action => 'create', :event_id => @event.id}) do |f| %>
+  
+  <%= render(:partial => "form", :locals => {:f => f}) %>
+    
+    <div>
+      <%= submit_tag("Add Guest") %>
+    </div>
+   
+  <% end %>
+</div>

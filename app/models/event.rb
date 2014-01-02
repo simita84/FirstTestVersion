@@ -2,6 +2,7 @@ class Event < ActiveRecord::Base
   # attr_accessible :title, :body
   
   belongs_to :admin
+  has_many :invitees
   
   
   

@@ -1,2 +1,29 @@
-<h1>Events#deleteEvents</h1>
-<p>Find me in app/views/events/deleteEvents.html.erb</p>
+<html>
+ 
+
+<body>
+	
+	
+<div class="hero-unit">
+
+<% @the_web_page_title = "Delete category: #{@event.name}" %>
+
+
+<div class="category delete">
+  <h2>Delete Event</h2>
+  
+  <%= form_for(:event, :url => {:action => 'destroyEvents', :id => @event.id}) do |f| -%>
+
+    <p>Are you sure you want to permanently delete this event?</p>
+  
+    <p class="reference-name"><%= @event.name %></p>
+  
+    <div class="btn">
+      <%= submit_tag("Delete Event") %>
+    </div>
+ 	<%= link_to("Back to List", {:action => 'listEvents'}, :class => 'btn') %>
+    
+  <% end %>
+</div>
+</body>
+</html>

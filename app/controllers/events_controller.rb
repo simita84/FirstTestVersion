@@ -47,14 +47,40 @@ class EventsController < ApplicationController
   
   
 
-  
-  
-  
-  
-
   def editEvents
-  end
+      @event = Event.find(params[:id])
+     
+    end
+    
+    
+    def updateEvents
+          @event = Event.find(params[:id])
+        # Save the object
+        if @event.update_attributes(params[:event])
+          # If save succeeds, redirect to the list action
+          flash[:notice] = "********* Event saved ************"
+         # redirect_to(:action => 'show', :id => @event.id )
+         redirect_to(:action => 'listEvents')
+        else
+          # If save fails, redisplay the form so user can fix problems
+          #@event_count = Event.count + 1
+          render('editEvents')
+        end
 
-  def deleteEvents
-  end
+      end
+    
+    
+      def deleteEvents
+         @event = Event.find(params[:id])
+       end  
+
+
+       def destroyEvents
+         Event.find(params[:id]).destroy
+         flash[:notice] = "********* Event destroyed ************"
+         redirect_to(:action => 'listEvents')
+
+       end
+
+  
 end

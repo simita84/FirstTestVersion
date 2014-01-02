@@ -220,10 +220,10 @@ end
         end
   end
   
+  def listEvents
+     @events = Event.all
+   end
   
-
-  def events
-  end
 
   def attempt_login
   end

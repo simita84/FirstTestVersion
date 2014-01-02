@@ -7,6 +7,9 @@ gem 'rails', '3.2.8'
 
 gem 'mysql2'
 
+gem "therubyracer"
+gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+ 
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -23,6 +26,11 @@ group :assets do
   gem 'tinymce-rails'
   
 end
+
+
+
+
+
 
 gem 'jquery-rails'
 

@@ -1,0 +1,25 @@
+<table summary="Form fields">
+        
+  <tr>
+    <th>Event Name</th>
+    <td><%= f.text_field(:name) %></td>
+  </tr>
+  <tr>
+    <th>Address</th>
+    <td><%= f.text_field(:address) %></td>
+  </tr>
+  <tr>
+    <th>When</th>
+    <td><%= f.datetime_select(:datetime) %></td>
+  </tr>
+	<tr>
+    <th>Description</th>
+    <td><%= f.text_area(:description, size: "60x12") %></td>
+  </tr>
+  <tr>
+    <th>Duration</th>
+    <td><%= f.text_field(:duration) %></td>
+  </tr>
+</table>
+
+ 

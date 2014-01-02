@@ -1,0 +1,60 @@
+<%= link_to("<< Back to Event", {:controller => 'events', :action => 'listEvents'}) %>
+<h1>Guests list for <%= @event.name %></h1>
+<%= link_to("Add New Guest", {:action => 'new', :event_id => @event.id}) %>
+
+<table border="1">
+   <tr class="header">
+     <th>Name</th>
+     <th>Email</th>
+     <th>Actions</th>
+   </tr>
+   <% @invitees.each do |invitee| %>
+   <tr>
+     <td><%= invitee.firstname %></td>
+     <td><%= invitee.email %></td>
+     <td>
+       <%= link_to("Edit", {:action => 'edit', :id => invitee.id, :event_id => @event.id}) %>
+       <%= link_to("Delete", {:action => 'delete', :id => invitee.id, :event_id => @event.id}) %>
+     </td>
+   </tr>
+
+
+
+
+   <% end %>
+ </table>
+
+<br/>
+<br/>
+
+
+
+ <%= form_tag( { :action => 'sendEventInvite', :event_id => @event.id, :multipart => true }) %>
+ <%= submit_tag( "Send Invite now" ) %>
+
+
+
+ <h1>Invited Members List</h1>
+
+<table border="1">
+   <tr class="header">
+     <th>Name</th>
+     <th>Email</th>
+     <th>Response</th>
+     <th>Number Of Adults</th>
+     <th>Number Of Kids</th>
+     <th>Message</th>
+   </tr>
+   <% @invitedinvitees.each do |invitedinvitee| %>
+   <tr>
+     <td><%= invitedinvitee.firstname %></td>
+     <td><%= invitedinvitee.email %></td>
+     <td><%= invitedinvitee.response %></td>
+     <td><%= invitedinvitee.adults %></td>
+     <td><%= invitedinvitee.kids %></td>
+     <td><%= invitedinvitee.message %></td>
+   </tr>
+
+  <% end %>
+ </table>
+
