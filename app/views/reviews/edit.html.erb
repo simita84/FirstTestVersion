@@ -6,9 +6,7 @@
 	
 <div class="hero-unit">
 
-
  
-
 <%=form_for(:review,:url=>{:action=>'update',:id =>@review.id,:product_id=>@product.id}) do |f| %>
 
  
@@ -23,15 +21,18 @@
 		<tr>
 		<th>Reviews Contents</th>
 		<td>
-				<%=f.text_field(:content,size: "60x12")%></td>
+				<%=f.text_area(:content,size: "60x12")%></td>
 				</tr>
 		<tr>
-			Posted By
-			<%=f.text_field(:member_username)%> 
+			<th>
+			Posted By</th>
+			<td><%=f.text_field(:member_username)%> </td>	 
 		 </tr>
+		
 			<tr>
-			 <td><%=submit_tag("Edit Reviews")%> 
-	</td> <td>	<div class="btn">	<%=link_to("CANCEL",:action=>'list',:product_id=>@product.id)%></div></td>
+			 <td>	<div class="btn"><%=submit_tag("Edit Reviews")%> </div>
+	</td> <td>	
+		<div class="btn">	<%=link_to("CANCEL",:action=>'list',:product_id=>@product.id)%></div></td>
 	 </tr>
 	</div>
 	<%end%>

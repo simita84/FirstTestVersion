@@ -4,6 +4,12 @@ class Admin < ActiveRecord::Base
   
   #mapping to events
   has_many :events
+  attr_accessor :password
+  attr_protected :hashed_password,:salt
+  
+  
+  
+  validates_uniqueness_of :emailId,:message=>"EmailID already taken"
   
    # attr_accessible :title, :body
     before_save :create_hashed_password
@@ -11,9 +17,12 @@ class Admin < ActiveRecord::Base
 
 
 
+    
+
+    
   #scope to sort by name
     scope :sorted,order("admin_users.last_name ASC,admin_users.first_name ASC")
-attr_accessor :password
+
 
     #attr_protected :hashed_password,:salt 
 

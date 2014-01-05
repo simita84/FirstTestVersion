@@ -1,21 +1,37 @@
+<html>
+ 
+
+<body>
+ 
+	
+<div class="hero-unit">
 
 
 <%=form_for(:product,:url=>{:action=>'destroy',:id =>@product.id}) do |f| %>
-<div id="outerdiv">
+	<div id="outerdiv">
  
 	
-<h3>Do u Want to delete the following record?</h3>
-
-<table border="1"> 
-	<tr>
-	 
- <%=@product.title%><br></th>
  
-</tr>
-</table>
-<%=submit_tag("Confirm Delete")%>  
 
-<br><%=link_to("Cancel",:action=>'list')%>
+<table class="table"> 
+	<tr>
+	 <th>
+ <h4>Are you sure  u want to delete the Reviews for " 	<%=@product.title%>"  ?</h4>
+
+</th></td>
+ 
+	</tr>
+	
+		<tr>
+			<td class="btn">
+	<%=submit_tag("Confirm")%>  </td>
+<td class="btn">
+	 <%=link_to("Cancel",:action=>'list')%></td>
+</table>
+
 </div>
 <%end%>
 
+</div>
+</body>
+</html>

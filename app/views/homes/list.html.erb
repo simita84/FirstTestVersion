@@ -3,25 +3,33 @@
 
 	<div class="hero-unit">
 		
-		<div class="btn">	<%=link_to("Back to Admin Menu",:controller=>'access',:action=>'menu')%></div>
+	
 		
 <h3>Manage Home Page</h3>
  
  
 	<br>
-<table class="table">
 
- 
- 
-<tr>
+  
 	<%@homes.each do |home|%>
-<th>		<%=" TITLE"%> </th>	<td><%=home.title%>        </td>     </tr> 
-	<tr>   				 
-     <th>	<%="CONTENT"%>  </th> <td><%=simple_format(word_wrap(home.content,:line_width=>260))%> </td>    
-<tr> 
- 		 		 
-	<th>		<%=" ACTION"%> </th>	 <td> <%=link_to("EDIT",:action=>'edit',:id=>home.id)%>	 
-	 	</td>	  
+		
+		<table class="table">
+			<tr>
+				<th><%=" TITLE"%> </th>
+				<td><%=home.title%>    </td>     
+			</tr> 
+			<tr>   				 
+     			<th><%="CONTENT"%>  </th> 
+				<td><%=simple_format(word_wrap(home.content,:line_width=>260))%> </td>    </tr>
+			<tr> 
+   				<td> 
+					<div class="btn">
+					<%=link_to("Modify",:action=>'edit',:id=>home.id)%>	 </div>
+	 			</td>	  
+					<td>
+							<div class="btn">
+					<%=link_to("Cancel",:controller=>'access',:action=>'menu')%></div>
+			</td>
 			 	   
 		</tr>
 		

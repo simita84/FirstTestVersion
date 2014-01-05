@@ -1,0 +1,33 @@
+<html>
+ <body>		
+<div class="hero-unit">
+ <%=form_for(:member,:url=>{:action=>'updateMember',:id =>@member.id}) do |f| %>
+ 
+<h3>Modify Member Details </h3>
+	<table class="table">
+		 
+			<tr>
+				<th>First Name</th>
+				<td>
+					<%=f.text_field(:first_name )%></td>
+				</tr>
+				<tr>
+					<th>Last Name</th>
+					
+					<td><%=f.text_field(:last_name )%></td>
+				</tr>
+					<th>Username</th>
+					
+					<td><%=f.text_field(:username)%></td>
+				</tr>
+					 
+					<tr>
+				<td> 	
+						<div class="btn"><%=submit_tag("Modify")%> 	</div>
+	</td> <td>	
+		<div class="btn">	<%=link_to("CANCEL",:action=>'listMembers')%></div></td>
+	 </tr>
+			</div>
+					<%end%>
+ 	</body>
+	</html>

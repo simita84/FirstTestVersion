@@ -6,7 +6,8 @@
 	
 	
 <div class="hero-unit">
- 	<div class="btn"><%=link_to("Logout",:controller=>'access',:action=>'logout')%></div>
+ 		<div class="btn">
+			<%=link_to("Logout",:controller=>'access',:action=>'logout')%></div>
 	<h2>Admin Panel</h2>
  
 	<h3 align="left">Welcome Admin <%= session[:username]%> !</h3>
@@ -27,7 +28,7 @@
 	   </tr>
  		 
  	<tr>	<td><h4><%=link_to("Manage Admins",:controller=>'admins',:action=>'index')%></h4></td>
-			<td><h4><%=link_to("Manage Members",:controller=>'access',:action=>'listMembers')%></h4></td>
+			<td><h4><%=link_to("Manage Members",:controller=>'admins',:action=>'listMembers')%></h4></td>
 			<td><h4><%=link_to("Manage Sign Up",:controller=>' ',:action=>' ')%></h4></td>
 	
 	</tr>

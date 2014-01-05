@@ -7,7 +7,7 @@
 <div class="hero-unit">
 
 
-<h1>Products/Services List</h1>
+<h1>Manage Products/Services</h1><br>
  
  <div class="btn">
 	<%=link_to("Add Products/Services",:action=>'new')%> </div>
@@ -25,10 +25,10 @@
  
 <tr>
 	<%@products.each do |product|%>
-  	 
-		<td><%=link_to(product.title, :controller=>'reviews', :action=>'list', :product_id=>product.id)%></td>	 	
-	 <td> <%=link_to("EDIT",:action=>'edit',:id=>product.id)%>	 
-			 <%=link_to("DELETE",:action=>'delete',:id=>product.id)%>	</td>	  
+  	<td><%= product.title%></td>
+		 <td class="btn"> <%=link_to("VIEW", :controller=>'reviews', :action=>'list', :product_id=>product.id)%></td>	 	
+	 <td class="btn"> <%=link_to("EDIT",:action=>'edit',:id=>product.id,)%>	 </td>
+		<td class="btn"> 	 <%=link_to("DELETE",:action=>'delete',:id=>product.id,:class=>'btn')%>	</td>	  
 			 	   
 		</tr>
 		

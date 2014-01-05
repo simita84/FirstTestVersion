@@ -19,7 +19,7 @@
 		<td>
 			 <%=simple_format(word_wrap(item.content,:line_width=>300))%> 		</td>
 			</tr>	
-			<tr><td>Posted By:[Member Email ID] </td></tr>
+			<tr><td>Posted By:<%=item.member_username %></td></tr>
 					<tr> 
 						<td>Created @<%=item.created_at %> && 
 							 Updated @<%=item.updated_at %></td>

@@ -5,24 +5,22 @@
 	
 	
 <div class="hero-unit">
-
-<div class="btn">
-<%= link_to("Back to Admin Menu", {:controller => 'access', :action => 'menu'}) %>
-	</div>  
-
-
-
+ <h2>Event List</h2><br>
+ 
+		<%= link_to("Back", {:controller => 'access', :action => 'menu'},:class=>'btn') %>
+ 
+ 
 	<div class="category list">
-	  <h2>Event List</h2>
+	 
 
-<div class="btn">
-		 <%= link_to("Add New Event", :action => "newEvents") %>
-		</div> 
+ 
+		 <%= link_to("Add New Event",{ :action => "newEvents"},:class=>'btn') %>
+ 
  
 	 <div><%= pluralize(@events.size, 'Event') %> found </div>
 
 	  <table class="table">
-	    <tr class="header">
+	    <tr>
 	      <th>Event Name</th>
 	       
 	      <th>When </th>
@@ -40,7 +38,7 @@
 	<td><%= event.duration %></td>
 	  	
 	     <td>
-             <%= link_to("Guests List",  {:controller => 'invitees',:action => 'index', :event_id => event.id }) %>
+             <%= link_to("Guests List",  {:controller => 'invitees',:action => 'index', :event_id => event.id },:class=>"btn") %>
 	 		<%= link_to("Show",{:action => 'showEvents', :id => event.id},:class=>"btn") %>
 	        <%= link_to("Edit", {:action => 'editEvents', :id => event.id},:class=>"btn") %>
 	        <%= link_to("Delete",{:action => 'deleteEvents', :id => event.id},:class=>"btn") %>

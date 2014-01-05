@@ -1,0 +1,86 @@
+  
+ <div class="subject show">
+  <h2>Event details</h2>
+   <table summary="table">
+    <tr>
+      <th>Name</th>
+      <td><%= @event.name %></td>
+    </tr>
+    <tr>
+      <th>Address</th>
+      <td><%= @event.address%></td>
+    </tr>
+    <tr>
+      <th>When</th>
+      <td><%= @event.datetime%></td>
+    </tr>
+    <tr>
+      <th>Created</th>
+      <td><%= @event.created_at %></td>
+    </tr>
+  </table>
+  
+</div>
+
+ 
+
+<%= form_for(:invitee, :url => {:action => 'memberresponsehandler',:id => @invitee.id, :event_id => @event.id, :email => session[:email_id]}) do |f| %>
+  
+    <table summary="Section form fields">
+  <tr>
+    <th> Will you attend ?   </th>
+    <td><%= f.select(:response, ["Yes","No","May Be","NA"].collect {|p| p[0..10]}) %></td>
+  </tr>
+
+
+
+  <tr>
+    <th><%= f.label(:message) %></th>
+    <td><%= f.text_field(:message) %></td>
+  </tr>
+
+</table>
+    
+    <div class="form-buttons">
+      <%= submit_tag("Submit") %>
+    </div>
+    
+  <% end %>
+
+
+
+
+
+
+
+<br/>
+<br/>
+
+<hr />
+
+
+<h2>Guests list for <%= @event.name %></h2>
+
+
+<table border="1">
+   <tr class="header">
+     <th>Name</th>
+     <th>Email</th>
+     <th>Response</th>
+     <th>Number Of Adults</th>
+     <th>Number Of Kids</th>
+     <th>Message</th>
+   </tr>
+   <% @invitedinvitees.each do |invitedinvitee| %>
+   <tr>
+     <td><%= invitedinvitee.firstname %></td>
+     <td><%= invitedinvitee.email %></td>
+     <td><%= invitedinvitee.response %></td>
+     <td><%= invitedinvitee.adults %></td>
+     <td><%= invitedinvitee.kids %></td>
+     <td><%= invitedinvitee.message %></td>
+   </tr>
+
+  <% end %>
+ </table>
+ 

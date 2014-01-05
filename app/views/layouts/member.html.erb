@@ -11,6 +11,7 @@
 		<div class="navbar">
               <div class="navbar-inner">
               	<div class="container">
+
                   <ul class="nav">
                     <li><%=link_to("Home",:controller=>'member',:action=>'index')%></li>
 				 	<li><%=link_to("Events",:controller=>'member',:action=>'listEvents')%></li>
@@ -33,14 +34,14 @@
 		 		</div> 
 	 		</div>
 	 	 </div>
- 
-
+ 	<div class="hero-unit">
+	<div align="right">Logged in as: <%= session[:username] %></div>
 
 
 
 <%= yield %>
 
-
+</div>
   
 
  </div>

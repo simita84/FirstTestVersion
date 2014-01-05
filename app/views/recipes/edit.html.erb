@@ -6,32 +6,34 @@
 	
 	
 <div class="hero-unit">
-	
-	<div class="btn"><%=link_to("CANCEL",:action=>'list',:id=>@recipe.id)%></div>
 
-<h3>Recipes EDITS PAGE</h3>
-
-
-<%=form_for(:recipe,:url=>{:action=>'update',:id =>@recipe.id,:id=>@recipe.id}) do |f| %>
-
+<%=form_for(:recipe,:url=>{:action=>'update',:id =>@recipe.id}) do |f| %>
+ 
  
 <table  class="table">
  
 <tr>
-<th>Reviews Title</th>
+<th>Recipe Title</th>
 <td>
 		<%=f.text_field(:title)%></td>
 		</tr>
 		<tr>
-		<th>Reviews Contents</th>
-		<td>
+		<th>Recipe Instructions</th>
+		<td class ="mceEditor"> 
 				<%=f.text_area(:content,size: "60x12")%></td>
 				</tr>
-		<tr>
+					<tr>
+						<th>
+						Posted By</th>
+						<td><%=f.text_field(:member_username)%> </td>	 
+					 </tr>
 		 
 			<tr>
-			 <td><%=submit_tag("Edit Recipe")%> 
-	</td> 
+			 <td>  <%=f.submit "Edit Recipe",class:'btn' %> 
+					</td> 
+	
+<td> <%=link_to("CANCEL",{:action=>'list'},:class=>'btn')%> </td>
+	
 	 </tr>
 	</div>
 	<%end%>

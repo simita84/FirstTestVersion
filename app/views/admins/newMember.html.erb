@@ -7,7 +7,7 @@
 <div class="hero-unit">
 
 	 
-<%=form_for(:admin,:url=>{:action=>'create'}) do |f| %>
+<%=form_for(:member,:url=>{:action=>'createMember'}) do |f| %>
  
 <table class="table">
 <tr>
@@ -23,12 +23,7 @@
 		<td>
 				<%=f.text_field(:username)%></td>
 				</tr>
-				
-				<tr>
-					<th>EmailId</th>
-					<td>
-							<%=f.text_field(:emailId)%></td>
-							</tr>
+			 
 								<tr>
 								<th>Password</th>
 								<td>
@@ -36,8 +31,8 @@
 										</tr>
 				
 	 <td>
-	<div class="btn">	<%=submit_tag("Create Admin user")%> </div></td>
-		<td><div class="btn"><%=link_to("Cancel",:action=>'list') %></div></td>
+	<div class="btn">	<%=submit_tag("Create Member")%> </div></td>
+		<td><div class="btn"><%=link_to("Cancel",:action=>'listMembers') %></div></td>
 		
 		</tr>
 	<%end%>

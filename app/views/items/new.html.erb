@@ -10,24 +10,32 @@
  
 <table class="table">
 	
-	<tr>
-		<th>item Index</th>
-		<td>	<%=f.text_field(:index)%></td>
-	</tr>
+ 
  
 	
 <tr>
-		<th>item Name</th>
+		<th>Item Name</th>
 		<td>	<%=f.text_field(:name)%></td>
 		
 </tr>
  
 <tr>
-		<th>Review  Content</th>
-			<td>	<%=f.text_area(:content)%></td>
+		<th>Item Content </th>
+			<td>	<%=f.text_area(:content,size: "60x12")%></td>
 </tr>
+<tr>
+		<th>Posted By</th>
+		<td>
+				<%=session[:username]%>
+			</td></tr>
 		<tr>
-	 <td>	<%=submit_tag("Create item")%> </td></tr>
+	 		<td class="btn">
+				<%=submit_tag("Create item")%> </td>
+			<td class="btn">
+				<%=link_to("CANCEL",:action=>'list',:id=>@item.id)%></td></tr>
+	
+	
+	
 	<%end%>
 <tr> <%=flash[:notice]%> </tr>
  </table>

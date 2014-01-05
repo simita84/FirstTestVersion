@@ -1,7 +1,6 @@
 class InviteesController < ApplicationController
-
-  
-  
+ 
+   layout 'admin'
   before_filter :find_event
 
     def index
@@ -23,9 +22,7 @@ class InviteesController < ApplicationController
       #@sections = Section.sorted.where(:page_id => @page.id)
        #@invitees = Invitee.where(:event_id => @event.id)
     end
-
-    def edit
-    end
+ 
 
 
    def eventinfo
@@ -56,7 +53,7 @@ class InviteesController < ApplicationController
         else
           # If save fails, redisplay the form so user can fix problems
           #@event_count = Event.count + 1
-          flash[:notice] = "********* Event not created ************"
+          flash[:notice] = "Sorry, Event cannot  be created, Please check the fields and try again"
           @error_message = "It seems there was a validation error. Please try again."
           render('new')
         end

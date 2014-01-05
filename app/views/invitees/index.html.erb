@@ -1,9 +1,17 @@
-<%= link_to("<< Back to Event", {:controller => 'events', :action => 'listEvents'}) %>
-<h1>Guests list for <%= @event.name %></h1>
-<%= link_to("Add New Guest", {:action => 'new', :event_id => @event.id}) %>
+<html>
+ 
 
-<table border="1">
-   <tr class="header">
+<body>
+	
+	
+<div class="hero-unit">
+<h1>Guests list for <%= @event.name %></h1>
+
+<%= link_to("Back to Event", {:controller => 'events', :action => 'listEvents'},:class=>"btn") %>
+<%= link_to("Add New Guest", {:action => 'new', :event_id => @event.id},:class=>"btn") %>
+
+<table class="table">
+   <tr>
      <th>Name</th>
      <th>Email</th>
      <th>Actions</th>
@@ -13,31 +21,26 @@
      <td><%= invitee.firstname %></td>
      <td><%= invitee.email %></td>
      <td>
-       <%= link_to("Edit", {:action => 'edit', :id => invitee.id, :event_id => @event.id}) %>
-       <%= link_to("Delete", {:action => 'delete', :id => invitee.id, :event_id => @event.id}) %>
+       <%= link_to("Edit", {:action => 'edit', :id => invitee.id, :event_id => @event.id},:class=>"btn") %>
+       <%= link_to("Delete", {:action => 'delete', :id => invitee.id, :event_id => @event.id},:class=>"btn") %>
      </td>
    </tr>
 
-
-
-
+ 
    <% end %>
  </table>
-
-<br/>
-<br/>
-
-
+ 
 
  <%= form_tag( { :action => 'sendEventInvite', :event_id => @event.id, :multipart => true }) %>
- <%= submit_tag( "Send Invite now" ) %>
+<div class="btn"> <%= submit_tag( "Send Invite now" ) %></div> 
+
 
 
 
  <h1>Invited Members List</h1>
 
-<table border="1">
-   <tr class="header">
+<table class="table">
+   <tr>
      <th>Name</th>
      <th>Email</th>
      <th>Response</th>
@@ -57,4 +60,8 @@
 
   <% end %>
  </table>
+
+</div>
+</body>
+</html>
 

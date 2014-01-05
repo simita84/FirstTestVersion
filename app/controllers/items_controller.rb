@@ -10,7 +10,7 @@ class ItemsController < ApplicationController
 
      def list
 
-      @items=Item.order("items.index ASC")
+      @items=Item.order("items.created_at DESC")
      end
 
   def listItem
@@ -25,6 +25,7 @@ class ItemsController < ApplicationController
      def create
        #Instantiate a new object using for parameters
          @item=Item.new(params[:item])
+          @item.update_attributes(:member_username=>session[:username])
        #Save the object
          if @item.save
        #If save succeeds redirect to list 

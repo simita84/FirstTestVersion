@@ -1,0 +1,31 @@
+
+<html>
+ <body>
+ 	<div class="hero-unit">
+ 
+<%=form_for(:member,:url=>{:action=>'destroyMember',:id =>@member.id}) do |f| %>
+  	
+	
+
+<table class="table"> 
+	<tr>
+		<th>
+ 	<h3>Are you sure  you want to delete "<%=@member.username%>" from the records?</h3>
+		</th>
+	</tr>
+	 
+	 <tr>
+			<td>
+					<div class="btn"><%=submit_tag("Confirm  ")%> </div>
+ 					<div class="btn"><%=link_to("Cancel",:action=>'listMembers')%> </div>
+			</td> 
+	</tr>
+	
+</table>
+
+	<%end%>
+		</div>
+
+</body>
+</html>
+

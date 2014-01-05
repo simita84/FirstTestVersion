@@ -8,10 +8,10 @@
 <div class="hero-unit">
 
 
-<h1>Manage Members</h1>
+<h1> Member List</h1><br>
  
  <div class="btn">
-	<%=link_to("Create new  member",:action=>'new')%> </div>
+	<%=link_to("Create new  member",:action=>'newMember')%> </div>
 	<div class="btn">	<%=link_to("Back to Admin Menu",:controller=>'access',:action=>'menu')%></div>
 
 	
@@ -33,10 +33,10 @@
 	<td><%=member.first_name%>        </td>  
 	   	<td><%=member.last_name%>        </td>      				 
     		 		  
-	<td><%=member.emailId%>        </td>  
+	<td><%=member.username%>        </td>  
 	  	
-	 <td> <%=link_to("EDIT",:action=>'edit',:id=>member.id)%>	 
-			 <%=link_to("DELETE",:action=>'delete',:id=>member.id)%>	</td>	  
+	 <td class="btn"> <%=link_to("EDIT",:action=>'editMember',:id=>member.id)%>	 </td>
+	 <td class="btn"> 		 <%=link_to("DELETE",:action=>'deleteMember',:id=>member.id)%>	</td>	  
 			 	   
 		</tr>
 		

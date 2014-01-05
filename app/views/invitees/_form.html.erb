@@ -1,10 +1,10 @@
- <table >
+<table >
 
   <tr>
     <th><%= f.label(:event_id, "Event") %></th>
     <td><%= f.select(:event_id, @events.collect {|s| [s.name, s.id]}) %></td>
   </tr>
-
+        
   <tr>
     <th>Guest Firstname</th>
     <td><%= f.text_field(:firstname) %></td>

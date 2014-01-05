@@ -1,6 +1,7 @@
 class MemberController < ApplicationController
  
     layout 'member'
+  before_filter :find_event
     before_filter :find_product
     before_filter :confirm_member_logged_in
   def index
@@ -221,9 +222,51 @@ end
   end
   
   def listEvents
-     @events = Event.all
+    @upcoming_events_arr = []
+     @past_events_arr = []
+      invitee_event_id_arr = []
+       
+       @invitee = Invitee.where(:invited => true, :email => session[:username])
+
+       @invitee.each do |invite|
+         invitee_event_id_arr << invite.event_id
+       end
+
+
+        @events = Event.where(:id => invitee_event_id_arr)
+
+        @events.each do |event|
+                         if event.datetime > Time.now
+                            @upcoming_events_arr << event
+                         else
+                            @past_events_arr << event
+                        end
+                     end
    end
   
+
+
+def eventDetails
+    @invitedinvitees = Invitee.where(:event_id => @event.id, :invited => true)
+   # @events= Event.where(:id=>@event.id)
+    @invitee = Invitee.where(:event_id => @event.id, :invited => true, :email => session[:username]).first
+  
+end
+
+def memberresponsehandler
+    @invitee = Invitee.find(params[:id])
+    @invitee.update_attributes(params[:invitee])
+    @invitee.responded = true
+    @invitee.save
+    redirect_to(:action => 'eventDetails', :event_id => @event.id)
+     
+  end
+
+
+
+
+
+
 
   def attempt_login
   end
@@ -242,5 +285,16 @@ end
         @product=Product.find_by_id(params[:product_id])
       end
   end
+  
+  
+  private
+
+  def find_event
+    if params[:event_id]
+      @event=Event.find_by_id(params[:event_id])
+    end
+  end 
+  
+  
    
 end

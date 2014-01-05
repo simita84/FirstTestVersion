@@ -42,7 +42,7 @@ Clubbykids::Application.routes.draw do
    root :to=>"public#index"
 
   match '/admin', :to=>"access#index"
-  
+  match '/eventdetails', to: 'member#eventDetails'
    
   
     
