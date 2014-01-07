@@ -5,7 +5,7 @@
 	
 	
 <div class="hero-unit">
- 	<div class="btn">	<%=link_to("Back to Admin Menu",:controller=>'access',:action=>'menu')%></div>
+ 
  
 <table class="table">
 
@@ -20,7 +20,8 @@
 
 <th>	<%="Find Us in Facebook"%>  </th> <td><%=contact.facebook%> </td>  </tr>  
 <tr> 
- 	 	 <th> <%=link_to("EDIT",:action=>'edit',:id=>contact.id)%>	 	</th>	  
+ 	 	 <td> <%=link_to("Modify",{:action=>'edit',:id=>contact.id},:class=>'btn')%>
+ 			<%=link_to("Cancel",{:controller=>'access',:action=>'menu'},:class=>'btn')%> 	</td>	  
 			 	   
 		</tr>
 		

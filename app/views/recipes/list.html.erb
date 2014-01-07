@@ -12,6 +12,8 @@
 			</div>
 
 		<table class="table">	
+			
+			<%= will_paginate%>
  
 		<%@recipes.each do |recipe|%>
 
@@ -29,6 +31,7 @@
 	</tr>
  		<%end%>
 	</table>
+				<%= will_paginate%>
 	
 	 <h3><%=flash[:notice]%></h3> 
 	

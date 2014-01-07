@@ -28,7 +28,8 @@
 			<th>		<%="Actions"%></th>
 			 
  
-<tr>
+<tr>		<%= will_paginate @members %>
+ 
 	<%@members.each do |member|%>
 	<td><%=member.first_name%>        </td>  
 	   	<td><%=member.last_name%>        </td>      				 
@@ -44,6 +45,8 @@
 
 	
 	</table>
+		<%= will_paginate @members %>
+	 
 	 <h3><%=flash[:notice]%></h3> 
 	</div>
 

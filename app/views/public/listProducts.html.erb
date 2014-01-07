@@ -4,18 +4,21 @@
 <body>
 	<div class="container">
 		<div class="row"> 
-			<div class="span10">
+			<div class="span12">
 				<div class="hero-unit">	
-					<div class="btn"> <%=link_to("Back to Home",:controller=>'public',:action=>'index')%>     
-					</div>
-									    
-					<h1>  Products Reviews    </h1>
+				 
+							<%= will_paginate @products %>			    
+					<h1>  Products Reviews    </h1><br><br>
+					
+				
 						<%@products.each do |product|%> 
- 	  	<%=link_to(product.title,:controller=>'public',:action=>'listReviews', :product_id=>product.id) %>   
+ 	  
+	 
+<%=link_to(product.title,{:controller=>'public',:action=>'listReviews',:product_id=>product.id},:class=>'btn') %>    
 	  
-	
- 	<%end%>
  
+ 	<%end%>
+ 	<%= will_paginate @products %>
 	 
 	</div>
 	</div>

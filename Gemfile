@@ -27,6 +27,9 @@ group :assets do
   
 end
 
+gem "will_paginate", "~> 3.0.4"
+gem 'kaminari'
+
 
 
 

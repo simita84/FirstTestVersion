@@ -28,6 +28,7 @@
  	 
  
 <tr>
+			<%= will_paginate @admins %>
 	<%@admins.each do |admin|%>
 	<td><%=admin.first_name%>        </td>  
 	   	<td><%=admin.last_name%>        </td>      				 
@@ -43,6 +44,8 @@
      
 	
 	</table>
+	
+			<%= will_paginate @admins %>
 	 <h3><%=flash[:notice]%></h3> 
 	</div>
 

@@ -2,35 +2,33 @@
 
 <body>
  
-
-	
-	<div class="hero-unit">
  
 <div class="category list">
-  <h2>Event List</h2><br>
+ 
+ 
+  
+<table class="table">
+	<tr>
+<td><h3>Upcoming Events</h3></td></tr>
+<tr>
+  			
+	<td>
 
-
-<%= link_to("Back", {:controller => 'member', :action => 'index'}, :class => 'btn') %> <br>
-<br>
-
- <div><%= pluralize(@upcoming_events_arr.size, 'Upcoming event') %>  </div>
-
-
-  <table class="table">
-    <tr>
-      <th>Event Name</th>
-      <th>Event Address</th>
-      <th>When </th>
-      <th>Duration</th>
-      <th>Actions</th>
-    </tr>
-    <% @upcoming_events_arr.each do |event| %>
-    <tr class="<%= cycle('odd', 'even') %>">
-      <td><%=raw event.name %></td>
-      <td><%= event.address %></td>
-      <td><%= event.datetime %></td>
-     <td><%= event.duration %></td>
-      <td class="actions">
+<table class="table">
+    						<tr>
+      								<th>Event Name</th>
+      								<th>Event Address</th>
+      								<th>When </th>
+      								<th>Duration</th>
+      								<th>Actions</th>
+    							</tr>
+    							<% @upcoming_events_arr.each do |event| %>
+    							<tr class="<%= cycle('odd', 'even') %>">
+      								<td><%=raw event.name %></td>
+      								<td><%= event.address %></td>
+      								<td><%= event.datetime %></td>
+     								<td><%= event.duration %></td>
+      								<td class="actions">
         <%= link_to("Evite", {:controller => 'events_members',:action => 'eventdetails', :event_id => event.id }) %>
       </td>
     </tr>
@@ -38,12 +36,17 @@
   </table>
 </div>
 
+						<td>	</tr>
+					
+ 
+<tr>
+	<td>
 
-<br>
+<h3>Past events</h3></td></tr>
 
- <div><%= pluralize(@past_events_arr.size, 'Past event') %> </div>
-
-
+<tr>
+	<td>
+  
   <table class="table">
     <tr class="header">
       <th>Name</th>
@@ -64,6 +67,12 @@
     </tr>
     <% end %>
   </table>
+
+</td>
+	</tr>
+	</table>
+
+
 </div>
 </body>
 </html>

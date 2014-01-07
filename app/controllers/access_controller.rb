@@ -45,6 +45,7 @@ class AccessController < ApplicationController
    def listMembers
 
     @members=Member.order("members.created_at ASC")
+      
    end
 
     #Create new    admin users

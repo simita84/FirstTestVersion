@@ -11,11 +11,36 @@ class ReviewsController < ApplicationController
 
   def list
   @reviews = Review.order("reviews.id DESC").where(:product_id=>@product.id) 
-  #@reviews = Review.where(:product_id=>@product.id) 
+   @reviews=Review.paginate(page: params[:page],per_page: 10) 
+   	
+   
   end
-
   
   
+  def newReviews
+       @review=Review.new(:product_id=>@product.id)
+      
+  end
+  def createReviews
+    #Instantiate a new object using for parameters
+           @product=Product.find_by_id(params[:product_id])
+           @review=Review.new(params[:review])
+           @review.update_attributes(:member_username=>session[:username],:product_id=>@product.id)
+  #Save the object
+         if @review.save    
+   #If save succeeds redirect to list 
+  # flash[:notice]= "Review for  --"+@review.title+"--added successfully"
+          flash[:notice]= "Review added successfully"
+          redirect_to(:action=>'list', :product_id => @review.product_id)
+  #else redislay the form so user can fix the problem
+         else
+              flash[:notice]= "Review for "+ @review.title+" cannot be added. "
+             render('newReviews')
+         end
+     end
+  
+  
+ 
   
   def edit
     #Find the object using form parameters

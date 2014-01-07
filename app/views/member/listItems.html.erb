@@ -1,24 +1,18 @@
 <html>
 
 <body>
+		<h3>Kids Items On Sale </h3>
  
-
+ 	<%=link_to("Back",{:controller=>'member',:action=>'index'},:class=>'btn')%> 
+ 	<%=link_to("Add new items",{:action=>'newItems'},:class=>'btn')%> 
+<br> 
 	
-	<div class="hero-unit">
-		
-		<div class="btn">	<%=link_to("Back Home",:controller=>'member',:action=>'index')%></div>
+	<br>
+	  	<table class="table">
 
-		<div class="btn">
-			<%=link_to("Create new items",:action=>'newItems')%> </div>
-		<div><%= pluralize(@items.size, 'item') %> found</div>
-	
-		<h3>items </h3>
-
-		<table class="table">
-
-
-	<% @items.each do |item|%>
-			<tr align ="left">	<th><%=item.name	%></th>         </tr>     				 
+ 			<% @items.each do |item|%>
+			<tr align ="left">
+					<th><%=item.name	%></th>         </tr>     				 
 
 					<tr align ="left">
 						<td>	<%= simple_format(item.content,:line_width=>30)%></td> </tr> 	 
@@ -43,7 +37,6 @@
 			 			</tr>	   
 	<%end%>	
 			</table>
-
-</div>
+ 
 </body>
 </html>

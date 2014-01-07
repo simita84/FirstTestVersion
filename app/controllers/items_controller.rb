@@ -11,6 +11,7 @@ class ItemsController < ApplicationController
      def list
 
       @items=Item.order("items.created_at DESC")
+      @items=Item.paginate(page: params[:page],per_page: 10) 
      end
 
   def listItem

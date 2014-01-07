@@ -2,7 +2,7 @@ class RecipesController < ApplicationController
   
   layout 'admin'
    before_filter :find_recipe
-   before_filter :confirm_logged_in,:except => [:login,:attempt_login]
+   before_filter :confirm_logged_in,:except => [:login,:attempt_login,:listPublicRecipes]
    
    def index
      list
@@ -10,15 +10,18 @@ class RecipesController < ApplicationController
    end
 
    def list
-     @recipes=Recipe.order("recipes.created_at DESC")
+     @recipes=Recipe.order("recipes.created_at ASC")
+    @recipes=Recipe.paginate(page: params[:page],per_page: 10)
+     
    end
   
    def listRecipes
       @recipes=Recipe.order("recipes.created_at DESC").where(:id=>@recipe.id)
+       @recipes=Recipe.paginate(page: params[:page],per_page: 10)
      
    end
    
-   
+     
    def new
      @recipe=Review.new
    end

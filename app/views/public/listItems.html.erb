@@ -5,18 +5,11 @@
 
 	<div class="span11">	
 		<div class="hero-unit">
-		<div class="btn">
 		 
-				<%=link_to("Back to Home",:controller=>'public',:action=>'index')%>
-			 
-				</div>
-				
-				
-				 
-<h1>Items for Sale   </h1>
+<h1>Kids Items for Sale   </h1>
  	 
 	<br>
-	
+		<%= will_paginate @items %>
 	
 <table class="table">
  
@@ -37,8 +30,8 @@
 	<tr> <td ><b>Posted By : <%=item.member_username%></b></td></tr>
 	
 	<tr> 
-		<td>Created @<%=Time.at((item.created_at).to_i) %> && 
-			 Updated @<%=item.updated_at %></td>
+		<td> 
+			 Last Updated on <%=item.updated_at.strftime("%B%e %Y") %></td>
 			</tr>
 	
 		<%end%>
@@ -47,6 +40,7 @@
 <br>
 	
 	</table>
+	<%= will_paginate @items %>
 	 <h3><%=flash[:notice]%></h3> 
 	
 	</div>

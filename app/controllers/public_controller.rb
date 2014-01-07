@@ -32,24 +32,28 @@ class PublicController < ApplicationController
       end
   
   def listProducts
-      @products=Product.order("products.created_at DESC")
-
+      @products=Product.order("products.created_at DESC").paginate(:page => params[:page],:per_page =>10)
+ 
   end
   
   def listReviews
          @products=Product.order("products.created_at ASC")
-       @reviews = Review.order("reviews.created_at DESC").where(:product_id=>@product.id) 
-
+         @reviews = Review.order("reviews.created_at DESC").where(:product_id=>@product.id).paginate(:page => params[:page],:per_page =>1) 
+      
    end
    
     def listRecipes
-     @recipes=Recipe.order("recipes.created_at DESC")
+   # @recipes=Recipe.order("recipes.created_at DESC").page(params[:recipe])
+    # @recipes=Recipe.order("recipes.created_at DESC")
+     # @users = User.search(query).page(params[:user_page])
+     
+     @recipes = Recipe.order("recipes.created_at DESC").paginate(:page => params[:page],:per_page =>3)
+      
       end
-
-    
-   
+ 
    def listItems
-     @items=Item.order("items.created_at DESC")
+     
+      @items = Item.order("items.created_at DESC").paginate(:page => params[:page],:per_page =>3)
    end
   
   def listContacts

@@ -1,6 +1,6 @@
 <html>
  <body>		
-<div class="hero-unit">
+ 
  <%=form_for(:recipe,:url=>{:action=>'updateRecipes',:id =>@recipe.id}) do |f| %>
  	<table class="table">
 		 
@@ -27,7 +27,7 @@
 	</td> <td>	
 		<div class="btn">	<%=link_to("CANCEL",:action=>'listRecipes')%></div></td>
 	 </tr>
-			</div>
+ 
 					<%end%>
  	</body>
 	</html>

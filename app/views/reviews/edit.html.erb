@@ -26,13 +26,13 @@
 		<tr>
 			<th>
 			Posted By</th>
-			<td><%=f.text_field(:member_username)%> </td>	 
+			<td><%=f.text_field(:member_username,:disabled=>'true')%> </td>	 
 		 </tr>
 		
 			<tr>
-			 <td>	<div class="btn"><%=submit_tag("Edit Reviews")%> </div>
-	</td> <td>	
-		<div class="btn">	<%=link_to("CANCEL",:action=>'list',:product_id=>@product.id)%></div></td>
+			 <td></td><td>	<%=f.submit "Modify",class:'btn' %>  
+ 
+	 	<%=link_to("CANCEL",{:action=>'list',:product_id=>@product.id},:class=>'btn')%></td>
 	 </tr>
 	</div>
 	<%end%>

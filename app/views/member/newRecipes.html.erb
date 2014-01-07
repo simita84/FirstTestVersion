@@ -1,6 +1,6 @@
 <html>
 <body>
-	<div class="hero-unit">
+ 
 		<%=form_for(:recipe,:url=>{:action=>'createRecipes'}) do |f| %>
 <table class="table">
  	<tr>
@@ -26,7 +26,7 @@
 	<%end%>
 <tr> <%=flash[:notice]%> </tr>
  </table>
-	</div>
+ 
 	</body>
 	</html>
 	 

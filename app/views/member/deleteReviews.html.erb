@@ -1,7 +1,7 @@
 
 <html>
  <body>
- <div class="hero-unit">
+ 
  <%=form_for(:review,:url=>{:action=>'destroyReviews',:id =>@review.id,:product_id=>@product.id}) do |f| %>
  
  
@@ -22,6 +22,6 @@
 </div>
 <%end%>
 
-</body>
+ 
 </html>
 

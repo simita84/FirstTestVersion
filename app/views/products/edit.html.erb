@@ -9,12 +9,10 @@
 
 
 
-<h3>Edit Review Category</h3>
+<h3>Modify</h3>
 
 
 <%=form_for(:product,:url=>{:action=>'update',:id =>@product.id}) do |f| %>
-
- 
  
 <table class="table">
  
@@ -26,9 +24,8 @@
 		<tr>
 		 
 			<tr>
-			<td><div class="btn"> <%=submit_tag("EDIT")%> </div>
-	</td> 
-	<td> <div class="btn">	<%=link_to("CANCEL",:action=>'list')%></td></div>
+			<td> <%=f.submit "Modify",class:'btn' %> 
+	  <%=link_to("CANCEL",{:action=>'list'},:class=>'btn')%></td>
 	 </tr>
  
 	<%end%>

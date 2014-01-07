@@ -5,10 +5,14 @@
 	
 	
 <div class="hero-unit">
-<h1>Guests list for <%= @event.name %></h1>
+<h2>Event : <%= @event.name %></h2>
+
+
 
 <%= link_to("Back to Event", {:controller => 'events', :action => 'listEvents'},:class=>"btn") %>
 <%= link_to("Add New Guest", {:action => 'new', :event_id => @event.id},:class=>"btn") %>
+	
+	<h3>Guests list </h3>
 
 <table class="table">
    <tr>
@@ -21,23 +25,22 @@
      <td><%= invitee.firstname %></td>
      <td><%= invitee.email %></td>
      <td>
-       <%= link_to("Edit", {:action => 'edit', :id => invitee.id, :event_id => @event.id},:class=>"btn") %>
-       <%= link_to("Delete", {:action => 'delete', :id => invitee.id, :event_id => @event.id},:class=>"btn") %>
+       <%= link_to("Edit", {:action => 'editInvitee', :id => invitee.id, :event_id => @event.id},:class=>"btn") %>
+       <%= link_to("Delete", {:action => 'deleteInvitee', :id => invitee.id, :event_id => @event.id},:class=>"btn") %>
      </td>
    </tr>
-
- 
-   <% end %>
+ <% end %>
  </table>
  
 
  <%= form_tag( { :action => 'sendEventInvite', :event_id => @event.id, :multipart => true }) %>
-<div class="btn"> <%= submit_tag( "Send Invite now" ) %></div> 
+<div class="btn"> <%= submit_tag( "Send Invite Now" ) %></div> 
+ 
 
 
+</hr>
 
-
- <h1>Invited Members List</h1>
+ <h3>Invited Members  </h3>
 
 <table class="table">
    <tr>

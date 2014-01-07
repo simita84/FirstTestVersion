@@ -1,70 +1,74 @@
 <html>
 
 <body>
-<div class="span3">
  
-	<div class="hero-unit">
-			
-			
-				
-				
-				 <b> Products Reviews   </b>
-
-				<table class="table">
-
+ 
+<div class="span2">
+  <div class="hero-unit">
+		<h4>Reviews  </h4>
+					 <ul class='nav'>
+						
+					
 						<%@products.each do |product|%> 	 
-
-					<tr><td>
-					 
+ 						 <li>
+						<%=link_to(product.title,:controller=>'public',:action=>'listReviews', :product_id=>product.id) %>  	 </li>
+						<%end%>
 						
-						
-					 <%=link_to(product.title,:controller=>'public',:action=>'listReviews', :product_id=>product.id) %>  	 </td>
-			<%end%></tr>
-
-					</table>
-				</div>
-			
-			
-		 
-		 </div>
-		
-				<div class="span10">
-						<div class="hero-unit">
-		<%=link_to("Back to Product/Services Page",:controller=>'public',:action=>'listProducts')%>
-		
-<h1> <%=@product.title%>  Reviews</h1>
-	 
-	<br>
-<table class="table" >
-  		
-	<% @reviews.each do |review|%>
-<tr align ="left">	
-	
-	<td><div class="text-error"><%=review.title	%></div></td>         </tr>     				 
-           		 		 
-			<tr align ="left">
-				<td><div class="lead">	<%= word_wrap(review.content,:line_width=>500)%></div></td> </tr> 	 
-				
-				<tr> <td> Posted by <%=review.member_username%>:</td></tr>	  
-				
-				<tr> 
-					<td>Created @<%=Time.at((review.created_at).to_i) %> && 
-						 Updated @<%=review.updated_at %></td>
-						</tr>
 				 
-	 	<%end%>	
-	</table>
-	</div>
+ </div>
+</div>
+		 
+		
+ 
+<div class="span9">
+					 <div class="hero-unit">
+		<%=link_to("Back to Categories",{:controller=>'public',:action=>'listProducts'},:class=>'btn')%>
+		
+	 
+			<h1> <%=@product.title%> 's  Reviews</h1>
+	 
+			<br>
+	
+			<%= will_paginate @reviews %>
+			<table class="table" >
+  		
+				<% @reviews.each do |review|%>
+				<tr align ="left">	
+	
+					<td class="text-error">
+						
+					 
+			
+			<h3>	 <%=review.title	%></h3></td>         </tr>     				 
+           		 		 
+						<tr align ="left">
+				<td class="lead">	<%= word_wrap(review.content,:line_width=>500)%></td> </tr> 	 
+				
+					<tr> <th> Posted by </th>
+					<td><%=review.member_username%></td></tr>	  
+				
+					<tr> 
+					<th> 
+						 Last Updated on </th>
+						<td>
+						<%=review.updated_at.strftime("%B %e %Y") %></td>
+						</tr>
+			 
+	 					<%end%>	
+ 
+					</table>
+	
+					<%= will_paginate @reviews %>
+		 			<h3><%=flash[:notice]%></h3>
+		 
+ </div>
+</div>
+	
  
 	
 	
-	
-	 <h3><%=flash[:notice]%></h3> 
-	
-	
-	
-	</div>
-	  
+	 
+ 
 </body>
 	
 </html>

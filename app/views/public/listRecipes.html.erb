@@ -1,49 +1,44 @@
 <html>
  <body>
-
-	<div class="container">
-
- 	
-<div class="span11">	
+  	
 	<div class="hero-unit">
 	
-		<div class="btn">
-			<%=link_to("Back to Home",:controller=>'public',:action=>'index')%>
-		</div>
+	 
 
-		<h2> Recipes    </h2>
- 
-			<table class="table">
-
- 
-				<%@recipes.each do |recipe|%>
-
-	    				 
+		<h2>Recipes for Kids</h2>
+		 
+  
+		<%= will_paginate @recipes %>
+			<table class="table"> 
+ 	<%@recipes.each do |recipe|%>
           		 		 
  	<tr>	
-	<th><div class="text-error"><%=recipe.title%></div> </th></tr> 
+	<th class="text-error">
+		<h3><%=recipe.title%></h3></th></tr> 
 	 	 
 	<tr> 
-		<td> <%=simple_format(word_wrap(recipe.content,:line_width=>100))%> </td></tr>
+		<td> <%=simple_format(word_wrap(recipe.content,:line_width=>400))%> </td></tr>
 		
 		<tr>
-			 <td>
-				Posted By : <%=recipe.member_username%>
+			 <th>
+				Posted By:<th><td> <%=recipe.member_username%>
 			</td>
 		</tr>
 
 		<tr> 
-			<td>Created @<%=Time.at((recipe.created_at).to_i) %> && 
-				 Updated @<%=recipe.updated_at %>
+		 <th>
+				 Last Updated on <th><td><%=recipe.updated_at.strftime("%B %e %Y") %>
 			</td>
 		</tr>
 		
  		<%end%>
 	</table>
+ 				<%= will_paginate @recipes %>
+ 					 
  
-	</div>
-	</div>
-	</div>
+	
+ 
+	
 	</body>
 	  
 

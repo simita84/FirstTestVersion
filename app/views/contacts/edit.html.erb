@@ -14,10 +14,10 @@
  
 <table  class="table">
 <tr>
-<th>     name</th>
+<th>     Name</th>
 <td>	<%=f.text_field(:name)%></td>
 <tr>
-<th>  email</th>
+<th>  Email</th>
 <td>
 		<%=f.text_field(:emailid)%></td>
 		</tr>
@@ -31,10 +31,10 @@
 		<tr>
 		 
 			<tr>
-			 <td><div class="btn"><%=submit_tag("Edit Contact details")%> </div>
+	     
+				 <td>	<%=f.submit "Modify",class:'btn' %> 
 				
-	</td> 
-	<td> 	<div class="btn"> <%=link_to("CANCEL",:action=>'list',:id=>@contact.id)%></div></td>
+   <%=link_to("CANCEL",{:action=>'list',:id=>@contact.id},:class=>'btn')%></td>
 	
 	 </tr>
 

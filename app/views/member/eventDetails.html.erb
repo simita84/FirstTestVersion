@@ -1,7 +1,11 @@
-  
- <div class="subject show">
-  <h2>Event details</h2>
-   <table summary="table">
+  <%=link_to("Back to Events",{:action=>'listEvents'},:class=>'btn')%>
+
+<table class="table">
+	<tr><td>
+  <h2>Event details</h2><td></tr>
+	
+	<tr><td>
+   <table class="table">
     <tr>
       <th>Name</th>
       <td><%= @event.name %></td>
@@ -12,57 +16,65 @@
     </tr>
     <tr>
       <th>When</th>
-      <td><%= @event.datetime%></td>
+      <td><%= @event.datetime.strftime('%e %b %Y %H:%m:%S%p')%></td>
+
     </tr>
     <tr>
       <th>Created</th>
-      <td><%= @event.created_at %></td>
+      <td><%= @event.created_at.strftime('%e %b %Y %H:%m:%S%p') %></td>
     </tr>
   </table>
   
-</div>
-
+ 			</tr>
+						 
+ <tr>
+	<td>
+<h3>Response </h3></td></tr>
+<%= form_for(:invitee, :url => {:action => 'memberresponsehandler',:id => @invitee.id, :event_id => @event.id, :email => session[:email_id]}) do |f| %>
  
 
-<%= form_for(:invitee, :url => {:action => 'memberresponsehandler',:id => @invitee.id, :event_id => @event.id, :email => session[:email_id]}) do |f| %>
-  
-    <table summary="Section form fields">
+
+<tr><td>
+    <table>
   <tr>
     <th> Will you attend ?   </th>
     <td><%= f.select(:response, ["Yes","No","May Be","NA"].collect {|p| p[0..10]}) %></td>
-  </tr>
+</tr>
+<tr>
+   	<th> No: of Adults </th>
+     <td><%= f.text_field(:adults) %></td>
 
-
-
-  <tr>
-    <th><%= f.label(:message) %></th>
-    <td><%= f.text_field(:message) %></td>
-  </tr>
-
+</tr>
+<tr>
+    <th> No: of kids</th>
+ 	<td><%= f.text_field(:kids) %></td>
+</tr>
+<tr>
+    <th> Message</th>
+    <td><%= f.text_area(:message,:cols=>5,:rows=>5) %></td>
+</tr>
+<tr>
+ 	<td> <%=f.submit "Submit",class:'btn' %> </td>
+	<td>RESET </td>
+</tr>
 </table>
     
-    <div class="form-buttons">
-      <%= submit_tag("Submit") %>
-    </div>
+
     
   <% end %>
 
+  </td>
+</tr>
 
-
-
-
-
-
-<br/>
-<br/>
-
-<hr />
+ <tr>
+	<td>
+ 
 
 
 <h2>Guests list for <%= @event.name %></h2>
 
 
-<table border="1">
+<table class="table">
    <tr class="header">
      <th>Name</th>
      <th>Email</th>
@@ -83,4 +95,6 @@
 
   <% end %>
  </table>
- 
+ </td>
+</tr>
+</table>

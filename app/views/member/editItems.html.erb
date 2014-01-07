@@ -1,28 +1,30 @@
 <html>
  <body>		
-<div class="hero-unit">
+ 
  <%=form_for(:item,:url=>{:action=>'updateItems',:id =>@item.id}) do |f| %>
  	<table class="table">
 		 
 			<tr>
-				<th>items Title</th>
+				<th> Title</th>
 				<td>
 					<%=f.text_field(:name)%></td>
 				</tr>
 				<tr>
-					<th>items Contents</th>
+					<th>Description</th>
 					<td>
-				<div class ="mceEditor"> 
-							<%=f.text_area(:content,size: "60x12")%></td> </div>
+ 
+							<%=f.text_area(:content,size: "60x12")%></td> 
 					</tr>
 					<tr>
 					 	<th>Author:			</th>
-				<td><%=f.text_field(:member_username)%> </td>	</tr>
-			<tr><td> 		<div class="btn"><%=submit_tag("Edit item")%> 	</div>
-	</td> <td>	
-		<div class="btn">	<%=link_to("CANCEL",:action=>'listItems')%></div></td>
+				<td><%=f.text_field(:member_username,:disabled=>'true')%> </td>	</tr>
+			<tr>
+				
+				<td> </td>	<td>	 <%=f.submit "Modify",class:'btn' %> 
+ 
+		 	<%=link_to("Cancel",{:action=>'listItems'},:class=>'btn')%> </td>
 	 </tr>
-			</div>
+ 
 					<%end%>
  	</body>
 	</html>

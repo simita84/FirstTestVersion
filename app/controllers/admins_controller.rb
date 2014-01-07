@@ -9,7 +9,7 @@ class AdminsController < ApplicationController
        #List all the admin users
       def list
 
-       @admins=Admin.order("admins.created_at DESC")
+       @admins=Admin.order("admins.created_at DESC").paginate(:page => params[:page],:per_page =>10)
       end
 
        #Create new    admin users
@@ -73,7 +73,8 @@ class AdminsController < ApplicationController
 
 
       def listMembers
-        @members=Member.order("members.created_at DESC")
+        @members=Member.order("members.created_at DESC").paginate(:page => params[:page],:per_page =>3)
+        
       end
         
       def newMember

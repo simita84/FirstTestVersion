@@ -8,17 +8,18 @@
  <h2>Event List</h2><br>
  
 		<%= link_to("Back", {:controller => 'access', :action => 'menu'},:class=>'btn') %>
- 
+  <%= link_to("Add New Event",{ :action => "newEvents"},:class=>'btn') %>
+
+<br>
  
 	<div class="category list">
 	 
-
- 
-		 <%= link_to("Add New Event",{ :action => "newEvents"},:class=>'btn') %>
- 
- 
-	 <div><%= pluralize(@events.size, 'Event') %> found </div>
-
+<br> 
+	  Total <%= pluralize(@events.size, 'Event') %>   
+		<br> <br>
+		
+		<%= will_paginate%>
+		
 	  <table class="table">
 	    <tr>
 	      <th>Event Name</th>
@@ -47,6 +48,7 @@
 	    </tr>
 	    <% end %>
 	  </table>
+			<%= will_paginate%>
 	</div>
 
  </div>
