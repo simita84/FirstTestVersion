@@ -14,22 +14,17 @@
           		 		 
  	<tr>	
 	<th class="text-error">
-		<h3><%=recipe.title%></h3></th></tr> 
+		<h3><%=recipe.title%></h3></th></tr>
+		<tr>
+		<td><b>By </b> <%=recipe.member_username%> 
+				 	<b>On </b> <%=recipe.created_at.strftime("%B %e %Y") %></td>
+		
+		</tr> 
 	 	 
 	<tr> 
 		<td> <%=simple_format(word_wrap(recipe.content,:line_width=>400))%> </td></tr>
 		
-		<tr>
-			 <th>
-				Posted By:<th><td> <%=recipe.member_username%>
-			</td>
-		</tr>
-
-		<tr> 
-		 <th>
-				 Last Updated on <th><td><%=recipe.updated_at.strftime("%B %e %Y") %>
-			</td>
-		</tr>
+		 
 		
  		<%end%>
 	</table>

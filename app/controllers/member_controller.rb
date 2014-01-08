@@ -20,9 +20,10 @@ class MemberController < ApplicationController
 
 
    def listRecipes
-     @recipes=Recipe.order("recipes.created_at DESC")
+     @recipes=Recipe.order("recipes.created_at DESC").paginate(page: params[:page],per_page: 2)
        #@recipes=Recipe.order("recipes.created_at ASC")
       # @recipes = Recipe.all
+       
    end
    
    
@@ -151,7 +152,7 @@ def destroyItems
 end
   
   def listProducts
-     @products=Product.order("products.id DESC")
+     @products=Product.order("products.id DESC").paginate(page: params[:page],per_page: 50)
   end
   def listReviews
      @products=Product.order("products.created_at DESC")

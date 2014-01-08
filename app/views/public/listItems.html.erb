@@ -3,7 +3,7 @@
 <body>
 	<div class="container">
 
-	<div class="span11">	
+ 	
 		<div class="hero-unit">
 		 
 <h1>Kids Items for Sale   </h1>
@@ -18,6 +18,12 @@
 	
 	<tr>
 			<td > <div class="text-error"><b> <%=item.name%></b></div> </td>
+			<td ><b>Posted By : <%=item.member_username%></b></td> 
+
+
+				<td> 
+				  on <%=item.created_at.strftime("%B%e %Y") %></td>
+		 
 	 
 		</tr>	 		  			 	   
 	
@@ -27,12 +33,7 @@
 			</td></tr>
 				
 							
-	<tr> <td ><b>Posted By : <%=item.member_username%></b></td></tr>
-	
-	<tr> 
-		<td> 
-			 Last Updated on <%=item.updated_at.strftime("%B%e %Y") %></td>
-			</tr>
+ 
 	
 		<%end%>
 			</tr>
@@ -48,7 +49,7 @@
 </div>
 </div>
 
-</div>
+ 
 </body>
 	
 </html>

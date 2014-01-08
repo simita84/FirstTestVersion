@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	
-  
-   <link  href="/stylesheets/bootstrap.css" rel="stylesheet"  type="text/css"/>
+		 <%= stylesheet_link_tag    "bootstrap", :media => "all" %>
   <title>Clubby Kids</title>
 </head>
 <body>
@@ -26,7 +24,7 @@
 					<li><%=link_to("Kids Items",:controller=>'public',:action=>'listItems')%></li>
 					<li><%=link_to("Contact Us",:controller=>'public',:action=>'listContacts')%></li>
 					<li><%=link_to("Login",:controller=>'public',:action=>'login')%></li>		 
-					<li><%=link_to("Sign Up",:controller=>'public',:action=>'SignUp')%></li>
+					<li><%=link_to("Sign Up",:controller=>'public',:action=>'newMember')%></li>
                   </ul>
                 </div>
               </div>

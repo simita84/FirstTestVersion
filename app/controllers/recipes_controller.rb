@@ -16,8 +16,8 @@ class RecipesController < ApplicationController
    end
   
    def listRecipes
-      @recipes=Recipe.order("recipes.created_at DESC").where(:id=>@recipe.id)
-       @recipes=Recipe.paginate(page: params[:page],per_page: 10)
+      @recipes=Recipe.order("recipes.created_at DESC").where(:id=>@recipe.id).paginate(page: params[:page],per_page: 10)
+       
      
    end
    

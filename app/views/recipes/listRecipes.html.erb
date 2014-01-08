@@ -11,6 +11,10 @@
 						<th>  
 				 		 <%= recipe.title%> 
 		 				</th>
+		
+						<td><p><b>Posted  by: </b>
+									<%=recipe.member_username%></p></td>
+									<td>	<p><b>On :</b> <%=recipe.created_at.strftime("%B %e %Y") %></td>
 	 				</tr>        				      		  
  	 	<tr> 
 						<td>
@@ -18,13 +22,8 @@
 			 				
 			 			</td>
 		 			</tr>	
-					<tr>
-						<td>
-							Posted By:<%=recipe.member_username %></td></tr>
-					<tr> 
-						<td>
-							Created @<%=recipe.created_at %> && Updated @<%=recipe.updated_at %></td>
-						</tr>
+					 
+				 
 						<%end%>
 			</table>
 				<div class="btn">

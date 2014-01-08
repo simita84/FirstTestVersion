@@ -39,19 +39,20 @@
 						
 					 
 			
-			<h3>	 <%=review.title	%></h3></td>         </tr>     				 
+			<h3>	 <%=review.title	%></h3></td>   
+			<td> <p> <b>Posted by : </b>
+		 		<%=review.member_username%> 
+				  On  
+			 
+				<%=review.created_at.strftime("%B %e %Y") %></p></td>     </tr>     				 
            		 		 
 						<tr align ="left">
 				<td class="lead">	<%= word_wrap(review.content,:line_width=>500)%></td> </tr> 	 
 				
-					<tr> <th> Posted by </th>
-					<td><%=review.member_username%></td></tr>	  
+					<tr> </tr>	  
 				
 					<tr> 
-					<th> 
-						 Last Updated on </th>
-						<td>
-						<%=review.updated_at.strftime("%B %e %Y") %></td>
+					
 						</tr>
 			 
 	 					<%end%>	

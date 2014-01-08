@@ -32,7 +32,7 @@ class PublicController < ApplicationController
       end
   
   def listProducts
-      @products=Product.order("products.created_at DESC").paginate(:page => params[:page],:per_page =>10)
+      @products=Product.order("products.created_at DESC").paginate(:page => params[:page],:per_page =>50)
  
   end
   
@@ -60,10 +60,53 @@ class PublicController < ApplicationController
      @contacts=Contact.all
     end
     
-   
+    #----------------Member Registration--------------------------------------------
+    def newMember
+        @member = Member.new
+      end
+
+      def showMember
+       # raise params.inspect
+        @member = Member.find_by_id(params[:id])
+      end  
+
+      def createMember
+        member = Member.new(params[:member])
+        if member.save
+          
+         session[:member_id]=member.id
+         session[:username]=member.username
+      
+         flash[:success] = 'Welcome to Momsntots.'
+       
+        redirect_to(:controller=>"member",:action=>'index')
+          
+         # sendemailToMember
+      #  Emailer.registration_email(@member).deliver
+       else
+         render('newMember')
+        end
+
+       # Emailer.registration_email(@member).deliver
+      end
+
+
+      def sendemailToMember
+
+        if @member
+          Emailer.registration_email(@member).deliver
+        end  
+      end
     
-    def SignUp
-    end
+    
+    
+    
+    
+    #-----------------------Member Registration-------------------------------------
+    
+  
+  
+  
   
    private 
 

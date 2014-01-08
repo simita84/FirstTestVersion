@@ -2,7 +2,7 @@
 <html>
 <body>
 
- 	
+  
  
 			<div><%= pluralize(@products.size, 'product') %> found</div>
 	
@@ -13,13 +13,13 @@
 
  
 
- <%=link_to(product.title,:controller=>'member',:action=>'listReviews', :product_id=>product.id) %> 
+ <%=link_to(product.title,{:controller=>'member',:action=>'listReviews', :product_id=>product.id},:class=>'btn') %> 
 
  
 
 <%end%>
  <h3><%=flash[:notice]%></h3> 
-<div class="btn">	<%=link_to("Back Home",:controller=>'member',:action=>'index')%></div>
+
  
 </body>
 </html>

@@ -7,25 +7,27 @@
  
 		 
 		
-		<div class="btn">	<%=link_to("Back Home",:controller=>'member',:action=>'index')%></div>
+ 	<%=link_to("Back Home",{:controller=>'member',:action=>'index'},:class=>'btn')%> 
 
-		<div class="btn">
-			<%=link_to("Create new Recipes",:action=>'newRecipes')%> </div>
-		<div><%= pluralize(@recipes.size, 'recipe') %> found</div>
-	
-		<h3 align="center">Recipes </h3>
-
+ 
+			<%=link_to("Create new Recipes",{:action=>'newRecipes'},:class=>'btn')%>  
+			<br>
+				<br>
+				<h3 align="center">Recipes </h3>
+			 
 		<table class="table">
 
-
+	<%= will_paginate  @recipes%>
 	<% @recipes.each do |recipe|%>
-			<tr align ="left">	<th><%=recipe.title	%></th>         </tr>     				 
+			<tr align ="left">	<th class='text-error'><%=recipe.title	%></th> 
+				<td><p><b>Posted  by: </b>
+							<%=recipe.member_username%></p></td>
+							<td>	<p><b>On :</b> <%=recipe.created_at.strftime("%B %e %Y") %></td>        	</tr>     				 
 
 					<tr align ="left">
 						<td> 	<%= simple_format(recipe.content,:line_width=>440)%></td> </tr> 	 
 
-						<tr> <td> <b>Author:</b><%=recipe.member_username%></td> </tr>
-
+						 
 					
 		<% if recipe.member_username == session[:username]%>
  
@@ -44,6 +46,7 @@
 			 			</tr>	   
 	<%end%>	
 			</table>
+				<%= will_paginate  @recipes%>
 
  
 </body>

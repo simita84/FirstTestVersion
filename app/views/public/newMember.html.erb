@@ -1,0 +1,47 @@
+<div class="span3">
+  <div class="hero-unit">
+  
+			<img src="/images/img8.jpg" class="img-polaroid" /><br>
+			<img src="/images/img10.gif" class="img-polaroid" /><br>
+			<img src="/images/img12.jpg" class="img-polaroid" />
+	
+	</div></div>
+	<div class="span5">
+	  <div class="hero-unit">
+<% provide(:title, 'Sign up') %>
+
+<h1>Sign up</h1>
+ 
+
+  <div class="row">
+  <div class="span3 offset1">
+    <%= form_for(:member,:url=>{:controller=>'public',:action =>'createMember'}) do |f| %>
+      
+      <%= f.label :first_name %>
+      <%= f.text_field :first_name %>
+
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name %>
+
+      <%= f.label :EmailId %>
+      <%= f.text_field :username%>
+
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+      
+      <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
+    <% end %>
+ 
+</div>
+</div>
+</div>
+</div>
+<div class="span3">
+  <div class="hero-unit">
+  
+			<img src="/images/img8.jpg" class="img-polaroid" /><br>
+			<img src="/images/img10.gif" class="img-polaroid" /><br>
+			<img src="/images/img12.jpg" class="img-polaroid" />
+	
+	</div></div>
+

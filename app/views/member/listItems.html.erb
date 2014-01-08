@@ -12,7 +12,7 @@
 
  			<% @items.each do |item|%>
 			<tr align ="left">
-					<th><%=item.name	%></th>         </tr>     				 
+					<th class='text-error'><%=item.name	%></th>         </tr>     				 
 
 					<tr align ="left">
 						<td>	<%= simple_format(item.content,:line_width=>30)%></td> </tr> 	 
