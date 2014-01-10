@@ -1,13 +1,25 @@
 <html>
 
 <body>
-	<div class="container">
-
- 	
-		<div class="hero-unit">
-		 
-<h1>Kids Items for Sale   </h1>
- 	 
+ 
+<div class="hero-unit">
+<div class="container">
+		<div class="span2">
+			<h4> All Items  </h4>
+			
+			<table class='table'> 
+ 	<%@allItems.each do |item|%>
+          		 		 
+ 	<tr>	
+<td><%=item.name%>
+	</td></tr>
+		</table>
+		<%end%>	
+	 	</div>
+	 	<div class="span9">
+ 
+<h1>Latest Items for Sale  </h1>
+  
 	<br>
 		<%= will_paginate @items %>
 	
@@ -17,18 +29,23 @@
 	    
 	
 	<tr>
-			<td > <div class="text-error"><b> <%=item.name%></b></div> </td>
-			<td ><b>Posted By : <%=item.member_username%></b></td> 
-
-
-				<td> 
-				  on <%=item.created_at.strftime("%B%e %Y") %></td>
-		 
-	 
+			<td> 
+				<div class="text-error">
+				 <h2><%=item.name%></h2></div>
+				 Posted By:<%=item.member_username%>
+ 					on<%=item.created_at.strftime("%B%e %Y") %>
+			</td>
+		</tr>
+		<tr>
+				<td>
+				<%= image_tag item.itemphoto.url(:medium) %>
+				</td>
 		</tr>	 		  			 	   
 	
-		<tr>	<td>	<p>
-		<div class="lead">	<%=simple_format(word_wrap(item.content,:line_width=>300))%></div></p>
+		<tr>	
+				<td>	
+					<p>
+		<div class="lead">			  <%=simple_format(word_wrap(item.content,:line_width=>300))%></div></p>
 			
 			</td></tr>
 				
@@ -44,12 +61,11 @@
 	<%= will_paginate @items %>
 	 <h3><%=flash[:notice]%></h3> 
 	
-	</div>
-	  </div>
-</div>
-</div>
-
  
+	   
+</div>
+ </div>
+ </div>
 </body>
 	
 </html>

@@ -28,14 +28,15 @@ group :assets do
 end
 
 gem "will_paginate", "~> 3.0.4"
-gem 'kaminari'
+ 
 
-
-
-
-
+gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
+ 
 
 gem 'jquery-rails'
+
+#gem "searchlogic",:git=>"git://github.com/binarylogic/searchlogic.git"
+ 
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

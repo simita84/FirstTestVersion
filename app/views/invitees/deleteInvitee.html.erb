@@ -1,0 +1,30 @@
+
+<html>
+ <body>
+
+	<div class="hero-unit">
+
+<%=form_for(:invitee,:url=>{:action=>'destroyInvitee',:id =>@invitee.id}) do |f| %>
+
+ 
+
+<table class="table"> 
+	<tr>
+		 
+	<th>
+ Do u really want  to delete " <%=@invitee.email%> "  ?
+
+</th>
+ </tr>
+<tr>
+	<td class="btn">
+	<%=submit_tag("Confirm Delete")%>  </td>
+ 	<td class="btn"><%=link_to("Cancel",:action=>'index')%></td>
+</table>
+
+</div>
+<%end%>
+
+</body>
+</html>
+

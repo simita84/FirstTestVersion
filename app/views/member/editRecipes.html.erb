@@ -1,7 +1,7 @@
 <html>
  <body>		
  
- <%=form_for(:recipe,:url=>{:action=>'updateRecipes',:id =>@recipe.id}) do |f| %>
+ <%=form_for(:recipe,:url=>{:action=>'updateRecipes',:id =>@recipe.id},:html => { :multipart => true }) do |f| %>
  	<table class="table">
 		 
 			<tr>
@@ -9,6 +9,10 @@
 				<td>
 					<%=f.text_field(:title)%></td>
 				</tr>
+				<tr><td>
+					
+				 <%= f.file_field :recipephoto %></td>
+					</tr>
 				<tr>
 					<th>Recipes Contents</th>
 					<td>

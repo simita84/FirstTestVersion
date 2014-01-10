@@ -19,6 +19,11 @@
       <th>Name</th>
       <td><%= @event.name %></td>
     </tr>
+	<tr><th>Event picture</th>
+			<td>
+			<%= image_tag @event.eventphoto.url(:medium) %>
+			</td>
+	</tr>
     <tr>
       <th>Address</th>
       <td><%= @event.address%></td>
@@ -31,6 +36,8 @@
       <th>Event Description</th>
       <td><%= @event.description%></td>
     </tr>
+	
+
     <tr>
       <th>Created</th>
       <td><%= @event.created_at %></td>

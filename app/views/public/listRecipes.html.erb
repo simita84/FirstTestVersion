@@ -1,11 +1,27 @@
 <html>
- <body>
-  	
-	<div class="hero-unit">
-	
-	 
 
-		<h2>Recipes for Kids</h2>
+<body>
+ 
+<div class="hero-unit">
+<div class="container">
+		<div class="span2">
+			<h4> All Recipes</h4>
+			
+			<table class='table'> 
+ 	<%@allrecipes.each do |recipe|%>
+          		 		 
+ 	<tr>	
+<td><%=link_to(recipe.title,{:controller=>'public',:action=>'displayRecipes',:id=>recipe.id})%>
+	</td></tr>
+		</table>
+		<%end%>	
+	 	</div>
+			
+			
+			
+			<div class="span9">
+			
+	 	<h2>Latest Recipes</h2>
 		 
   
 		<%= will_paginate @recipes %>
@@ -15,6 +31,11 @@
  	<tr>	
 	<th class="text-error">
 		<h3><%=recipe.title%></h3></th></tr>
+		<tr>
+				<td>
+				<%= image_tag recipe.recipephoto.url(:medium) %>
+				</td>
+		</tr>
 		<tr>
 		<td><b>By </b> <%=recipe.member_username%> 
 				 	<b>On </b> <%=recipe.created_at.strftime("%B %e %Y") %></td>
@@ -29,10 +50,11 @@
  		<%end%>
 	</table>
  				<%= will_paginate @recipes %>
- 					 
+ 	</div>				 
  
 	
- 
+ </div>
+</div>
 	
 	</body>
 	  

@@ -90,7 +90,7 @@ class MemberController < ApplicationController
   
  
  def listItems
-              @items=Item.order("items.created_at DESC")
+              @items=Item.order("items.created_at DESC").paginate(page: params[:page],per_page: 5)
 end
 def newItems
              @item=Item.new
@@ -264,13 +264,34 @@ def memberresponsehandler
   end
 
 
+#-------------------UPDATE MEMBERS---------------------------------
 
 
 
+   def editMember
+       #Find the object using form parameters
+       @member=Member.find(params[:id])
+ 
+   end
 
-
-  def attempt_login
-  end
+   def updateMember
+        #Find the object using form parameters
+        @member=Member.find(params[:id])
+         #update with new values
+         @member.update_attributes(params[:member])
+        #Save the object
+         if @member.save
+               #If update succeeds redirect to list 
+          flash[:notice]= "Details for Member for --"+@member.name+"--updated successfully"
+             redirect_to(:action=>'showAccountInfo',:id=>@member.id)
+        else
+          #if save fails ,rediplay the form so user can fix problems
+          flash[:notice]= "Details for Member for --"+@member.name+" cannot be updated. "
+           
+            render('editMember')
+        end
+end
+#-------------------------
 
   
   def logout

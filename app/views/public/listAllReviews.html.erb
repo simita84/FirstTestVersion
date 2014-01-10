@@ -1,0 +1,63 @@
+<html>
+
+<body>
+ 
+ 
+ 
+		
+ 
+<div class="span8">
+					 <div class="hero-unit">
+		<%=link_to("Back to Categories",{:controller=>'public',:action=>'listProducts'},:class=>'btn')%>
+		
+	 
+			<h1> <%=@product.title%> 's  Reviews</h1>
+	 
+			<br>
+	
+			<%= will_paginate @reviews %>
+			<table class="table" >
+  		
+				<% @reviews.each do |review|%>
+				<tr align ="left">	
+	
+					<td class="text-error">
+						
+					 
+			
+			<h3>	 <%=review.title	%></h3></td>   
+			<td> <p> <b>Posted by : </b>
+		 		<%=review.member_username%> 
+				  On  
+			 
+				<%=review.created_at.strftime("%B %e %Y") %></p></td>     </tr>     				 
+           		 		 
+						<tr align ="left">
+				<td class="lead">	
+				<p><%= word_wrap(review.content,:line_width=>500)%></p></td> </tr> 	 
+				
+					<tr> </tr>	  
+				
+					<tr> 
+					
+						</tr>
+			 
+	 					<%end%>	
+ 
+					</table>
+	
+					<%= will_paginate @reviews %>
+		 			<h3><%=flash[:notice]%></h3>
+		 
+ </div>
+</div>
+	
+ 
+	
+	
+	 
+ 
+</body>
+	
+</html>
+ 

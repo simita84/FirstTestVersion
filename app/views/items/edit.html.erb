@@ -12,13 +12,19 @@
 			<td>
 		<%=f.text_field(:name)%></td>
 		</tr>
+		
 			<tr>
 		<th>Contents</th>
 			<td>
 		 	<%=f.text_area(:content,size: "60x12")%></td>
 			</tr>
+			<tr>	<th>Item Picture</th>
+				<td>
+
+		 <%=f.file_field(:itemphoto) %>	</td>
+				</tr>
 		<tr>
-		  	 <td>
+		 
 			<td>
 				<div class="btn">
 				<%=submit_tag("Update")%> </div>

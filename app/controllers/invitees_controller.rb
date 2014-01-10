@@ -68,22 +68,49 @@ class InviteesController < ApplicationController
       end
     
         
-    def deleteInvitee
-      end
-    def destroyInvitee
-          end
+        def deleteInvitee
+           #Find the object using form parameters
+           @invitee=Invitee.find(params[:id])
+           end
+         def destroyInvitee
+              #Find the object using form parameters
+              @invitee=Invitee.find(params[:id])
+               if @invitee.destroy
+                 flash[:notice]="Invitee   "+@invitee.email+" deleted successfully"
+                  redirect_to(:action =>'index')  
+                  else
+                     flash[:notice]="Invitee   "+@item.email+" cannot be deleted"   
+               end
+         end
+        
+      
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
     
     
 
     def sendEventInvite
       @invitees = Invitee.where(:event_id => @event.id, :invited => false)
       ## message = "Email sent!"
-      if @invitees && @event
-        Eventinviter.eventinvite(@invitees,@event).deliver
-      end 
-      flash[:success] = "********* Email Sent ************"
+        if @invitees && @event
+          Eventinviter.eventinvite(@invitees,@event).deliver
+        end 
+        flash[:success] = "********* Email Sent ************"
 
-      @invitees.each do |invitee|
+          @invitees.each do |invitee|
           invitee.update_attributes(:invited => true)
       end  
 

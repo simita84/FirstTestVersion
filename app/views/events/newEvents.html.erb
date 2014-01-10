@@ -37,6 +37,11 @@
     <th>Description</th>
     <td><%= f.text_area(:description,size: "60x12") %></td>
   </tr>
+	<tr>	<th>Event Picture</th>
+		<td>
+
+<%=f.file_field(:eventphoto) %>	</td>
+		</tr>
 <tr>
     <th>Created By:</th>
     <td><%=session[:username]%></td>

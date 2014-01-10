@@ -1,7 +1,7 @@
 <html>
 <body>
  
-		<%=form_for(:recipe,:url=>{:action=>'createRecipes'}) do |f| %>
+<%=form_for(:recipe,:url=>{:action=>'createRecipes'},:html => { :multipart => true }) do |f| %>
 <table class="table">
  	<tr>
 		<th>Recipe Title</th>
@@ -16,6 +16,11 @@
 				<td>
 				<%= session[:username] %></td>
 				</tr>
+				
+				<tr><td>
+					
+				</td> <%= f.file_field :recipephoto %>
+					</tr>
  		 <tr><td>
 	<div class="btn">
 			<%=submit_tag("Create Recipe")%> 

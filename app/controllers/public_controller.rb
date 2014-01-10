@@ -1,6 +1,7 @@
 class PublicController < ApplicationController
    layout 'public'
    before_filter :find_product
+ 
     
   def index
      @homes=Home.all
@@ -33,7 +34,7 @@ class PublicController < ApplicationController
   
   def listProducts
       @products=Product.order("products.created_at DESC").paginate(:page => params[:page],:per_page =>50)
- 
+      @reviews = Review.order("reviews.created_at DESC").paginate(:page => params[:page],:per_page =>5)
   end
   
   def listReviews
@@ -48,12 +49,18 @@ class PublicController < ApplicationController
      # @users = User.search(query).page(params[:user_page])
      
      @recipes = Recipe.order("recipes.created_at DESC").paginate(:page => params[:page],:per_page =>3)
+        @allrecipes=Recipe.order("recipes.created_at DESC")
+      end
       
+      def displayRecipes
+        @recipe = Recipe.all
       end
  
    def listItems
      
       @items = Item.order("items.created_at DESC").paginate(:page => params[:page],:per_page =>3)
+      @allItems=Item.order("items.created_at DESC")
+  
    end
   
   def listContacts
@@ -71,17 +78,18 @@ class PublicController < ApplicationController
       end  
 
       def createMember
-        member = Member.new(params[:member])
-        if member.save
+        @member = Member.new(params[:member])
+        if @member.save
           
-         session[:member_id]=member.id
-         session[:username]=member.username
+         session[:member_id]=@member.id
+         session[:username]=@member.username
       
          flash[:success] = 'Welcome to Momsntots.'
        
         redirect_to(:controller=>"member",:action=>'index')
+        
           
-         # sendemailToMember
+         sendemailToMember
       #  Emailer.registration_email(@member).deliver
        else
          render('newMember')
@@ -94,7 +102,7 @@ class PublicController < ApplicationController
       def sendemailToMember
 
         if @member
-          Emailer.registration_email(@member).deliver
+          Signup.registration_email(@member).deliver
         end  
       end
     
@@ -116,8 +124,7 @@ class PublicController < ApplicationController
    end
    end
    
-    
-
+     
     
 
 end

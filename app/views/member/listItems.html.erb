@@ -9,11 +9,14 @@
 	
 	<br>
 	  	<table class="table">
-
+	<%= will_paginate  @items%>
  			<% @items.each do |item|%>
 			<tr align ="left">
-					<th class='text-error'><%=item.name	%></th>         </tr>     				 
-
+					<th class='text-error'><%=item.name	%></th>         </tr>    
+				<tr>
+						<td> 				 
+ 						<%= image_tag item.itemphoto.url(:medium) %>
+</td></tr>
 					<tr align ="left">
 						<td>	<%= simple_format(item.content,:line_width=>30)%></td> </tr> 	 
 
@@ -37,6 +40,7 @@
 			 			</tr>	   
 	<%end%>	
 			</table>
+				<%= will_paginate  @items%>
  
 </body>
 </html>

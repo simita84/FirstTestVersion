@@ -10,12 +10,8 @@ class EventsController < ApplicationController
   end
 
   def listEvents
-    @events = Event.all
-       @events=Event.paginate(page: params[:page],per_page: 10) 
+    @events=Event.order("events.created_at DESC").paginate(page: params[:page],per_page: 10)       
   end
-
-   
-  
   def showEvents
       @event = Event.find(params[:id])
     end

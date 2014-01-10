@@ -2,6 +2,11 @@ require "digest/sha1"
 class Member < ActiveRecord::Base
   # attr_accessible :title, :body
 
+  attr_accessible :memberphoto,:username, :first_name,:last_name,:password
+   has_attached_file :memberphoto, :styles => { :medium => "300x300>", :thumb =>"50x50>" }
+
+
+
    before_save :create_hashed_password
     after_save :clear_password
     attr_accessor :password

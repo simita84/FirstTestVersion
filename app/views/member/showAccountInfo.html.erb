@@ -9,12 +9,19 @@
 
 	<table class="table">
 	
-		<tr><th> Account Details</th></tr>
+		<tr><th> Account Details</th>
+ 		</tr>
+		<tr>
+				<td>
+				<%= image_tag @member_user.memberphoto.url(:thumb) %>
+				</td>
+		</tr>
 		<tr>
 			<td>Email ID: </td>
 			
-			<td><%=session[:username]%> </td>
+			<td><%=@member_user.username%></td>
 		</tr>
+	
 		
 		<tr>
 			<td>First Name: </td>
@@ -29,10 +36,12 @@
 					<td>Member Since: </td>
 					<td><%=@member_user.created_at.to_time.strftime('%e %b %Y %H:%m:%S')%></td>
 				</tr>
-				 
+				<tr><td>
+					<%= link_to( "Modify Profile Details", 
+		 { :controller=>"member", :action=>"editMember", :id=>@member_user.id},:class=>'btn') %>		 </td></tr>
 				
 			
-<div class="btn">	<%=link_to("Back Home",:controller=>'member',:action=>'index')%></div>
+ 
 
 </body>
 </html>

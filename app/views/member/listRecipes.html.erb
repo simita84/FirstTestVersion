@@ -19,13 +19,21 @@
 
 	<%= will_paginate  @recipes%>
 	<% @recipes.each do |recipe|%>
-			<tr align ="left">	<th class='text-error'><%=recipe.title	%></th> 
-				<td><p><b>Posted  by: </b>
-							<%=recipe.member_username%></p></td>
-							<td>	<p><b>On :</b> <%=recipe.created_at.strftime("%B %e %Y") %></td>        	</tr>     				 
+			<tr align ="left">
+	<th class='text-error'>
+		<h2><%=recipe.title	%> </h2>
+		
+		<p><b>Posted  by: </b>
+		 <%=recipe.member_username%> 
+	 <b>On :</b> <%=recipe.created_at.strftime("%B %e %Y") %></p>
+	</th>       
+			 	</tr>     				 
 
-					<tr align ="left">
-						<td> 	<%= simple_format(recipe.content,:line_width=>440)%></td> </tr> 	 
+<tr><td align ="center"> 		
+	<p>			 
+			 <%= image_tag recipe.recipephoto.url(:medium) %>
+							 	<%= simple_format(recipe.content,:line_width=>440)%><p>
+							</td> </tr> 	 
 
 						 
 					

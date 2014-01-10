@@ -1,5 +1,11 @@
 class Item < ActiveRecord::Base
   # attr_accessible :title, :body
+  
+  attr_accessible :itemphoto,:name, :content,:member_username
+   has_attached_file :itemphoto, :styles => { :medium => "300x300>", :thumb => "100x100>" }
+
+  
+  
     belongs_to :member
     
      

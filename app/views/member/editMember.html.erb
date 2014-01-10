@@ -1,0 +1,38 @@
+<html>
+ <body>		
+ 
+ <%=form_for(:member,:url=>{:action=>'updateMember',:id =>@member.id},:html => {:multipart => true }) do |f| %>
+ 	<table class="table">
+		 
+			<tr>
+				<th> EmailId </th>
+				<td>
+					<%=f.text_field(:username)%></td>
+				</tr>
+				
+				<tr>
+					<th>First Name</th>
+					<td><%=f.text_field(:first_name)%></td>
+		  	 	</tr>
+					<tr>
+					 	<th> Last Name			</th>
+				<td><%=f.text_field(:last_name)%> </td>	
+				</tr>
+				<tr>
+						<th> Choose a Picture </th>
+					<td>
+					
+				 <%= f.file_field (:memberphoto) %></td>
+					</tr>
+				
+			<tr><td> 		 
+				
+				<%=f.submit "Modify Profile",class:'btn' %> 
+	 
+	</td> <td>	
+		<div class="btn">	<%=link_to("CANCEL",:action=>'showAccountInfo')%></div></td>
+	 </tr>
+ 
+					<%end%>
+ 	</body>
+	</html>

@@ -1,41 +1,31 @@
   <%=link_to("Back to Events",{:action=>'listEvents'},:class=>'btn')%>
 
-<table class="table">
-	<tr><td>
-  <h2>Event details</h2><td></tr>
-	
-	<tr><td>
-   <table class="table">
-    <tr>
-      <th>Name</th>
-      <td><%= @event.name %></td>
-    </tr>
-    <tr>
-      <th>Address</th>
-      <td><%= @event.address%></td>
-    </tr>
-    <tr>
-      <th>When</th>
-      <td><%= @event.datetime.strftime('%e %b %Y %H:%m:%S%p')%></td>
 
-    </tr>
-    <tr>
-      <th>Created</th>
-      <td><%= @event.created_at.strftime('%e %b %Y %H:%m:%S%p') %></td>
-    </tr>
-  </table>
-  
- 			</tr>
-						 
- <tr>
+		
+		 
+  <dl align='center'>
+ 
+		<dt><h2><%= @event.name %></h2></dt>  
+	<dt>	<%= image_tag @event.eventphoto.url(:medium) %><dt><br>
+		<dt>When </dt> 
+	      <dd><%= @event.datetime.strftime('%e %b %Y %H:%m:%S%p')%></dd><br>
+	 
+	<dt>Where </dt>
+      <dd><td><%= @event.address%></td></dd>
+     
+</dl>
+   
+  <table class='table'>
+ 		<tr> 
 	<td>
-<h3>Response </h3></td></tr>
+		<h3>Response </h3>
+			</td></tr>
 <%= form_for(:invitee, :url => {:action => 'memberresponsehandler',:id => @invitee.id, :event_id => @event.id, :email => session[:email_id]}) do |f| %>
  
 
 
 <tr><td>
-    <table>
+ 
   <tr>
     <th> Will you attend ?   </th>
     <td><%= f.select(:response, ["Yes","No","May Be","NA"].collect {|p| p[0..10]}) %></td>

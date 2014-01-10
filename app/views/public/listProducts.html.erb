@@ -2,26 +2,62 @@
  
 
 <body>
+		<div class="hero-unit">	
 	<div class="container">
-		<div class="row"> 
-			<div class="span12">
-				<div class="hero-unit">	
-				 
-							<%= will_paginate @products %>			    
-					<h1>  Products Reviews    </h1><br><br>
-					
+	 
+ <div class='span2'>
+			
+				 <br>
+							    
+					<h4>Review<br> Categories</h4>
+		 	 	
 				
 						<%@products.each do |product|%> 
  	  
-	 
-<%=link_to(product.title,{:controller=>'public',:action=>'listReviews',:product_id=>product.id},:class=>'btn') %>    
+	<ul class='nav'><li> 
+<%=link_to(product.title,{:controller=>'public',:action=>'listReviews',:product_id=>product.id}) %>   </li></ui> 
 	  
  
  	<%end%>
  	<%= will_paginate @products %>
-	 
+</div>	 
+ 
+ <div class='span8'>
+	<h3>  Latest Reviews </h3><br>
+	<%= will_paginate @reviews %>
+	<% @reviews.each do |review|%>
+		<tr>	
+
+			<td class="text-error">
+ 
+				<h3>	 <%=review.title	%></h3></td>   
+				<td> <p> <b>Posted by : </b>
+					<%=review.member_username%> 
+	  				On  
+ 
+					<%=review.created_at.strftime("%B %e %Y") %></p></td>     </tr>     				 
+	 		 
+					<tr>
+						<td class="lead">	
+							<p><%= word_wrap(review.content,:line_width=>500)%></p></td> </tr> 	 
+	
+		<tr> </tr>	  
+	
+		<tr> 
+		
+			</tr>
+ 
+			<%end%>	
+
+		</table>
+
+		<%= will_paginate @reviews %>
+	
 	</div>
-	</div>
+	
+	
+
+
 	</div>
 	</div>
   </body>
