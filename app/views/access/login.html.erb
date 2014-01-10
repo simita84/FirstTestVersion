@@ -20,7 +20,7 @@
 	 	<td><%= label_tag(:password)%>	</td>
 		<td><%=password_field_tag(:password)%>	</td></tr>
 		</tr>
-		<tr><td class="btn"><%=submit_tag("login")%></td></tr>
+		<tr><td></td><td> <%=submit_tag "Login",class:'btn btn-primary btn-large' %></td></tr>
 	</table>
 	<%end%>
 		 <%=flash[:notice]%>
