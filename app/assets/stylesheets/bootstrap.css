@@ -8,14 +8,13 @@
  * Designed and built with all the love in the world by @mdo and @fat.
  */
 
-
-
+ 
 
 
 body {
 	
   margin: 0;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  
   font-size: 18px;
   line-height: 20px;
   color: #333333;
@@ -24,9 +23,22 @@ body {
 background-image: url("/images/kids.jpeg") ; 
 }
 
-body p
+.recipeImage{
+	float :right;
+}
+
+ 
+
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+  p
 {
-	font-size: 13px;
+	font-size: 15px;
+	font-family: "Comic Sans MS", cursive, sans-serif
 	
 }
 
@@ -34,16 +46,17 @@ body p
 .clearfix {
   *zoom: 1;
 }
+ 
 
 .mainHead{
 	margin: 10px 0;
   font-family: inherit;
   font-weight: bold;
   line-height: 20px;
-  color: inherit;
+ text-align:center;
+color:#FFFFCC;
   text-rendering: optimizelegibility;
-	color:#FFFF00;
-	background-color:#FFFFF;
+	 
 }
 
 .clearfix:before,
@@ -432,6 +445,9 @@ a:focus {
 .row-fluid:after {
   clear: both;
 }
+
+
+
 
 .row-fluid [class*="span"] {
   display: block;
@@ -6178,11 +6194,11 @@ a.badge:focus {
 	background: -ms-linear-gradient(top, rgba(254,252,234,1) 0%,rgba(241,218,54,1) 100%); /* IE10+ */
 	background: linear-gradient(to bottom, rgba(254,252,234,1) 0%,rgba(241,218,54,1) 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fefcea', endColorstr='#f1da36',GradientType=0 ); /* IE6-9 */
-  padding: 60px;
-  margin-bottom: 30px;
+  padding: 30px;
+  margin-bottom: 10px;
   font-size: 18px;
-  font-weight: 200;
-  line-height: 30px;
+  font-weight: 20;
+  line-height: 10px;
  
   color:inherit;
    
