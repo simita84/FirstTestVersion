@@ -13,7 +13,7 @@
 <table align="center">
  <tr>
 
-	<td> <h3>Login</h3></td></tr>
+	<td> <h3>Please Login !!</h3></td></tr>
 	<tr>
 		<td><%= label_tag(:username)%>	</td>
 		<td><%=text_field_tag(:username)%>	</td><tr>
@@ -22,10 +22,10 @@
 		</tr>
 		<tr><td></td>
 	  <td>
-		 <%=submit_tag "Login",class:'btn btn-primary btn-large' %> 
-		
-		 
-		</td></tr>
+		 <%=submit_tag "Sign In",class:'btn btn-primary btn-large' %> 
+	  
+		 <%=link_to("Sign Up",{:action=>'newMember'},:class=>'btn btn-primary btn-large')%></td>
+		</tr>
 		 
 	</table>
 	<%end%>
